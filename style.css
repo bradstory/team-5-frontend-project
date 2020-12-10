@@ -1,36 +1,50 @@
 body {
-    height: 100vh;   
-}
-h1 {
-    font-size: 20px;
-    border: 2px solid black;
-}
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid black;
-}
-button {
-    height: 25px;
-    border-radius: 10px;
-    border: 2px solid black;
-    
-    
-}
-.parent {
-    border: 2px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.card {
-    border: 2px solid black;
-    height: 250px;
-    width: 250px;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ranchers', cursive;
+  font-weight: bold;
 }
 
-.name {
-    
+h1 {
+  font-size: 20px;
+  border: 2px solid black;
 }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+}
+button {
+  height: 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.parent {
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  border: 10px solid #098d3c;
+  border-style: double;
+  margin: 10px;
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #ff392f;
+  padding: 10px;
+}
+
+#products {
+  display: flex;
+  background-color: #4a8cf688;
+  justify-content: space-around;
+}
+
+/* #christmasTree {
+  background-color: #ff392fdc;
+  padding: 10px;
+} */
