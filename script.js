@@ -11,11 +11,11 @@ class product {
 const cristmasTree = new product("Christmas Tree", "Traditional", "Decorate your house with this beautify traditional style Christmas Tree!", 100);
 const mask = new product("Christmas Mask", "Traditional", "Protect yourself in style with this Christmas mask!", 20);
 const stocking = new product("Christmas Stocking", "Traditional", "Decorate your chimney with yule tidings this year with this beautiful Christmas Stocking", 25);
-const uglySweater = new product("Ugly Sweater", "Be the life of the party this year with this one-of-a-kind uggo sweater", 55);
+const uglySweater = new product("Ugly Sweater", "Traditional", "Be the life of the party this year with this one-of-a-kind uggo sweater", 55);
 const ornament = new product("Christmas Ornament", "Traditional", "Put some Christmas cheer on your tree this year with this special ornament", 15);
 const vinylRecord = new product("Christmas Vinyl Record", "Traditional", "As good or better than Michael Bublé", 30);
 const socks = new product("Socks", "Traditional", "It's like a stocking but for your feet.", 15);
-const lumpOfCoal = new product("Lump Of Coal", "Someone's been naughty this year.", 500);
+const lumpOfCoal = new product("Lump Of Coal", "Traditional", "Someone's been naughty this year.", 500);
 const coffeeMug = new product("Coffee Mug", "Traditional", "You'll need something stronger than coffe to get through the holiday's this year.", 20);
 const whiteElephant = new product("White Elephant", "Traditional", "As George Carlin would say - Could be meat, could be cake", 1000);
 
