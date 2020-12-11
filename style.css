@@ -44,7 +44,12 @@ button {
   justify-content: space-around;
 }
 
-/* #christmasTree {
-  background-color: #ff392fdc;
-  padding: 10px;
-} */
+.name {
+  margin-bottom: 3px;
+} 
+
+.category {
+  margin-bottom: 15px;
+  margin-left: 7px;
+} 
+
