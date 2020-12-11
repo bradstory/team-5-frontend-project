@@ -8,12 +8,37 @@
 <body>
     <div class="shopping-cart">
         <div class="column-labels">
-            <label class="item-title">Item</label>
-            <label class="item-image">Image</label>
-            <label class="item-details">Details</label>
-            <label class="item-price">Price</label>
-            <label class="item-quantity">Quantity</label>
-        </div>
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-removal">Remove</label>
+            <label class="product-line-price">Total</label>
+          </div>
+
+          <!-- product 1 line -->
+        <div class="product">
+            <div class="product-image">
+              <img src="rainbow-tree.jpg" height="250px" width="250px">
+            </div>
+            <div class="product-details">
+              <div class="product-title">Artificial Smart Christmas Tree</div>
+              <p class="product-description">Sure it's $500 Christmas tree. But you can control the color of the lights with your phone. And you're saving a tree in the process. #worthit</p>
+            </div>
+            <div class="product-price">499.99</div>
+            <div class="product-quantity">
+              <input type="number" value="1" min="1">
+            </div>
+            <div class="product-removal">
+              <button class="remove-product">
+                Remove
+              </button>
+            </div>
+            <div class="product-line-price">499.99</div>
+          </div>
+
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
