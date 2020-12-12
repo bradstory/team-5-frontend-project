@@ -68,3 +68,35 @@ document.getElementById("whiteElephant").getElementsByClassName("name")[0].inner
 document.getElementById("whiteElephant").getElementsByClassName("category")[0].innerHTML = whiteElephant.category;
 document.getElementById("whiteElephant").getElementsByClassName("description")[0].innerHTML = whiteElephant.description;
 document.getElementById("whiteElephant").getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
+
+//Adding Items to the cart with a IIFE//
+
+(function addToCart() {
+  const cartBtn = document.querySelectorAll('.addToCart');
+  cartBtn.forEach(function(btn){
+    btn.addEventListener('click', function(event) {
+      console.log(event.target);
+      
+      if(event.target.parentElement.classList.contains('card')) { 
+        // console.log(event.target.parentElement); ///console logs the card element containing all the item info
+
+        const items = {}
+        //Img is the 2nd child element
+        let itemPic = event.target.parentElement.children[1].textContent
+        console.log(itemPic)
+        items.img = itemPic;
+        //Name is the first child element in the card container. Grabs the text and then assigns it
+        let itemName = event.target.parentElement.children[0].textContent
+        // console.log(itemName)
+        items.name = itemName;
+        //Price is the 4th child element in the card container. Grabs the text and then assigns it
+        let itemPrice = event.target.parentElement.children[4].textContent
+        // console.log(itemPrice)
+        items.price = itemPrice;
+        console.log(items)
+
+
+      }
+    });
+  });
+})();
