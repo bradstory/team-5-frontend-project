@@ -68,3 +68,4 @@ document.getElementById("whiteElephant").getElementsByClassName("name")[0].inner
 document.getElementById("whiteElephant").getElementsByClassName("category")[0].innerHTML = whiteElephant.category;
 document.getElementById("whiteElephant").getElementsByClassName("description")[0].innerHTML = whiteElephant.description;
 document.getElementById("whiteElephant").getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
+
