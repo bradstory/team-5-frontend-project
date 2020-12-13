@@ -77,22 +77,19 @@ document
   .getElementsByClassName("category")[0].innerHTML = cristmasTree.category;
 document
   .getElementById("christmasTree")
-  .getElementsByClassName("description")[0].innerHTML =
-  cristmasTree.description;
+  .getElementsByClassName("description")[0].innerHTML = cristmasTree.description;
 document
   .getElementById("christmasTree")
   .getElementsByClassName("price")[0].innerHTML = cristmasTree.price;
 
-document.getElementById("mask").getElementsByClassName("name")[0].innerHTML =
-  mask.name;
+document.getElementById("mask").getElementsByClassName("name")[0].innerHTML = mask.name;
 document
   .getElementById("mask")
   .getElementsByClassName("category")[0].innerHTML = mask.category;
 document
   .getElementById("mask")
   .getElementsByClassName("description")[0].innerHTML = mask.description;
-document.getElementById("mask").getElementsByClassName("price")[0].innerHTML =
-  mask.price;
+document.getElementById("mask").getElementsByClassName("price")[0].innerHTML = mask.price;
 
 document
   .getElementById("stocking")
@@ -146,16 +143,14 @@ document
   .getElementById("vinylRecord")
   .getElementsByClassName("price")[0].innerHTML = vinylRecord.price;
 
-document.getElementById("socks").getElementsByClassName("name")[0].innerHTML =
-  socks.name;
+document.getElementById("socks").getElementsByClassName("name")[0].innerHTML = socks.name;
 document
   .getElementById("socks")
   .getElementsByClassName("category")[0].innerHTML = socks.category;
 document
   .getElementById("socks")
   .getElementsByClassName("description")[0].innerHTML = socks.description;
-document.getElementById("socks").getElementsByClassName("price")[0].innerHTML =
-  socks.price;
+  document.getElementById("socks").getElementsByClassName("price")[0].innerHTML = socks.price;
 
 document
   .getElementById("lumpOfCoal")
@@ -191,25 +186,25 @@ document
   .getElementsByClassName("category")[0].innerHTML = whiteElephant.category;
 document
   .getElementById("whiteElephant")
-  .getElementsByClassName("description")[0].innerHTML =
-  whiteElephant.description;
+  .getElementsByClassName("description")[0].innerHTML = whiteElephant.description;
 document
   .getElementById("whiteElephant")
   .getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
 
 // Adding Items to the cart with a IIFE//
 
+
 (function addToCart() {
   const cartButton = document.querySelectorAll(".addToCart");
+
   cartButton.forEach(function (button) {
     button.addEventListener("click", function (event) {
       // console.log(event.target);
-
       if (event.target.parentElement.classList.contains("card")) {
         //console logs the card element containing all the item info
         // console.log(event.target.parentElement); 
 
-        const items = {}
+        const items = {};
 
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
@@ -233,10 +228,13 @@ document
         items.description = itemDescr;
 
         //Price is the 4th child element in the card container. Grabs the text and then assigns it
-        let itemPrice = event.target.parentElement.children[4].textContent;
-        // console.log(itemPrice)
-        items.price = itemPrice;
-        // console.log(items);
+        // let itemPrice = event.target.parentElement.children[4].textContent;
+        
+        // items.price = itemPrice;
+
+        let priceTxt = event.target.parentElement.children[4].textContent;
+        let priceNumber = parseInt(priceTxt, 10);
+        items.price = priceNumber;
 
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
@@ -248,7 +246,7 @@ document
               <div class="product-title">${items.name}</div>
               <p class="product-description">${items.description}</p>
             </div>
-            <div class="product-price">${items.price}</div>
+            <div class="product-price">$ ${items.price}</div>
             <div class="product-quantity">
               <input type="number" value="1" min="1">
             </div>
@@ -259,10 +257,17 @@ document
             </div>
           </div>`;
         //defining the shopping cart
-        const shoppingCart = document.getElementById('cart');
+        const shoppingCart = document.getElementById('displayProducts');
         //creating and appending the element
         shoppingCart.append(cartItem);
       }
     });
   });
 })();
+
+function showPayments(e) {
+  const creditOpt = document.querySelector(".creditOpt");
+
+  creditOpt.classList.add("show");
+  creditOpt.classList.remove("hide");
+}

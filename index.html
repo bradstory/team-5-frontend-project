@@ -18,12 +18,11 @@
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
-                <button class="addToCart" >Add to Cart</button>
-                <!-- onclick="addToCartClicked(event)" -->
+                <button class="addToCart">Add to Cart</button>
             </div>
             <div id="mask" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -95,36 +94,53 @@
             </div>
         </div>
         <div class="shopping-cart" id="cart">
-            <div class="column-labels">
-                <label class="product-image">Image</label>
-                <label class="product-details">Product</label>
-                <label class="product-price">Price</label>
-                <label class="product-quantity">Quantity</label>
-                <label class="product-removal">Remove</label>
-                <label class="product-line-price">Total</label>
-              </div>
-    
-              <!-- product 1 line -->
-            <!-- <div class="product">
-                <div class="product-image">
-                  <img src="img/rainbow-tree.jpg" height="250px" width="250px">
-                </div>
-                <div class="product-details">
-                  <div class="product-title">Artificial Smart Christmas Tree</div>
-                  <p class="product-description">Sure it's $500 Christmas tree. But you can control the color of the lights with your phone. And you're saving a tree in the process. #worthit</p>
-                </div>
-                <div class="product-price">499.99</div>
-                <div class="product-quantity">
-                  <input type="number" value="1" min="1">
-                </div>
-                <div class="product-removal">
-                  <button class="remove-product">
-                    Remove
-                  </button>
-                </div>
-              </div> -->
-            <!-- end of product line -->
-            <div class="cart-total-price">499.99</div>
+            <div id="displayProducts"></div>
+            <button onclick="showPayments(event)">Proceed to Payment</button>
+            <div class="creditOpt hide">
+                <form id="simplify-payment-form" action="" method="POST">
+                    <div>
+                        <label>Credit Card Number: </label>
+                        <input id="cc-number" type="text" maxlength="20" autocomplete="off" value="" autofocus />
+                    </div>
+                    <div>
+                        <label>CVC: </label>
+                        <input id="cc-cvc" type="text" maxlength="4" autocomplete="off" value="" />
+                    </div>
+                    <div>
+                        <label>Expiry Date: </label>
+                        <select id="cc-exp-month">
+                            <option value="01">Jan</option>
+                            <option value="02">Feb</option>
+                            <option value="03">Mar</option>
+                            <option value="04">Apr</option>
+                            <option value="05">May</option>
+                            <option value="06">Jun</option>
+                            <option value="07">Jul</option>
+                            <option value="08">Aug</option>
+                            <option value="09">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                        <select id="cc-exp-year">
+                            <option value="13">2021</option>
+                            <option value="14">2022</option>
+                            <option value="15">2023</option>
+                            <option value="16">2024</option>
+                            <option value="17">2025</option>
+                            <option value="18">2026</option>
+                            <option value="19">2027</option>
+                            <option value="20">2028</option>
+                            <option value="21">2029</option>
+                            <option value="22">2030</option>
+                        </select>
+                    </div>
+                    <button id=process-payment-btn onclick="processPayment()">Process Payment</button>
+                    <div class="cards">
+                        <img src="pics/VisaMastercardAmexDiscoverCards.png" height="150px" width="350px">
+                    </div>
+                </form>
+            </div>
         </div>
     <script src="script.js"></script>
 </body>
