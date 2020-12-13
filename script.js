@@ -260,8 +260,9 @@ document
           </div>`;
         //defining the shopping cart
         const shoppingCart = document.getElementById('cart');
+        const payOptions = document.getElementById('pay-options')
         //creating and appending the element
-        shoppingCart.append(cartItem);
+        shoppingCart.insertBefore(cartItem,payOptions);
       }
     });
   });

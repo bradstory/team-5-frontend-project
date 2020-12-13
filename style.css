@@ -61,10 +61,10 @@ button {
   border: 3px solid black;
   border-radius: 5%;
   background-color: lightgray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  /* flex-direction: column; */
   width: fit-content;
   margin: auto;
   padding: 5px;
