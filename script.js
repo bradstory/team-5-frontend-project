@@ -197,46 +197,77 @@ document
   .getElementById("whiteElephant")
   .getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
 
-//Adding Items to the cart with a IIFE//
+
+// const cart = []
+
+
+// function addToCartClicked(e) {
+//   // console.log(e)
+//   var productElement = e.target.parentElement;
+//   const product = {}
+//   // console.log(productElement.children[0])
+//   let itemPic = productElement.children[1].src;
+//   // console.log(itemPic);
+//   //gives the index of the img tag in the src url that itemPic gives
+//   let imgSlice = itemPic.indexOf("img");
+//   // console.log(imgSlice);
+//   let slicedImagePath = itemPic.slice(imgSlice);
+//   // console.log(slicedImagePath);
+//   product.img = slicedImagePath;
+//   cart.push(product)
+//   console.log(cart);
+// }
+
+// function checkoutClicked() {
+//   cart.forEach(product => {
+//     console.log(product)
+//   })
+// }
+
+
+
+
+
+
+// Adding Items to the cart with a IIFE//
+
 
 (function addToCart() {
-  const cartBtn = document.querySelectorAll(".addToCart");
-  cartBtn.forEach(function (btn) {
-    btn.addEventListener("click", function (event) {
-      console.log(event.target);
+  const cartButton = document.querySelectorAll(".addToCart");
+  cartButton.forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      // console.log(event.target);
 
       if (event.target.parentElement.classList.contains("card")) {
-        // console.log(event.target.parentElement); ///console logs the card element containing all the item info
+        console.log(event.target.parentElement); ///console logs the card element containing all the item info
 
-        const items = {};
+        const items = {}
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
         console.log(itemPic);
         //gives the index of the img tag in the src url that itemPic gives
-        let imgSlice = itemPic.indexOf('img');
+        let imgSlice = itemPic.indexOf("img");
         console.log(imgSlice);
         let slicedImagePath = itemPic.slice(imgSlice);
-        console.log(slicedImagePath)
-
+        console.log(slicedImagePath);
 
         items.img = slicedImagePath;
         //Name is the first child element in the card container. Grabs the text and then assigns it
         let itemName = event.target.parentElement.children[0].textContent;
-        // console.log(itemName)
+        console.log(itemName)
         items.name = itemName;
         //get Description
         let itemDescr = event.target.parentElement.children[3].textContent;
-        console.log(itemDescr)
-        items.description = itemDescr
+        console.log(itemDescr);
+        items.description = itemDescr;
         //Price is the 4th child element in the card container. Grabs the text and then assigns it
         let itemPrice = event.target.parentElement.children[4].textContent;
-        // console.log(itemPrice)
+        console.log(itemPrice)
         items.price = itemPrice;
         console.log(items);
 
-        const cartItem = document.createElement("div");
+        const cartItem = document.createElement('div');
         cartItem.classList.add("product");
-
         cartItem.innerHTML = `
                 <div class="product-image">
               <img src="${items.img}" height="250px" width="250px">
@@ -255,15 +286,13 @@ document
               </button>
             </div>
           </div>`;
-          //defining the shopping cart and the total to be used for inserting the cart item
-          const shoppingCart = document.getElementById('shopping-cart')
-          const total = document.getElementsByClassName('cart-total-price')
-          //using the insertBefore method which passes the parameters of what object you want to insert, then where you want to put it before. Was pointed in this direction by a friend/tutor and trying it here
-          shoppingCart.insertBefore(cartItem, total)
-          alert('item added to cart! YAYYY!')
 
-
-
+        //defining the shopping cart and the total element to be used for inserting the cart item
+        const shoppingCart = document.getElementById('shopping-cart');
+        const total = document.getElementsByClassName('cart-total-price');
+      
+        shoppingCart.insertBefore(cartItem, total);
+        
       }
     });
   });
