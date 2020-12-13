@@ -56,3 +56,22 @@ button {
 .card img {
   height: 100px
 }
+
+.pay-with-cash {
+  border: 3px solid black;
+  border-radius: 5%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  padding: 5px;
+}
+.cash-transaction{
+  display:none;
+}
+.showMe {
+  display: block;
+}

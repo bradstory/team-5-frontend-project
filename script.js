@@ -266,3 +266,8 @@ document
     });
   });
 })();
+
+function showPayCash() {
+  const cashBlock = document.getElementById('cash-transaction')
+  cashBlock.classList.toggle('showMe')
+}
