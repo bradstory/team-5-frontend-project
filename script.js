@@ -70,17 +70,17 @@ const whiteElephant = new product(
 );
 
 document
-  .getElementById("products")
+  .getElementById("christmasTree")
   .getElementsByClassName("name")[0].innerHTML = cristmasTree.name;
 document
-  .getElementById("products")
+  .getElementById("christmasTree")
   .getElementsByClassName("category")[0].innerHTML = cristmasTree.category;
 document
-  .getElementById("products")
+  .getElementById("christmasTree")
   .getElementsByClassName("description")[0].innerHTML =
   cristmasTree.description;
 document
-  .getElementById("products")
+  .getElementById("christmasTree")
   .getElementsByClassName("price")[0].innerHTML = cristmasTree.price;
 
 document.getElementById("mask").getElementsByClassName("name")[0].innerHTML =
@@ -197,40 +197,7 @@ document
   .getElementById("whiteElephant")
   .getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
 
-
-// const cart = []
-
-
-// function addToCartClicked(e) {
-//   // console.log(e)
-//   var productElement = e.target.parentElement;
-//   const product = {}
-//   // console.log(productElement.children[0])
-//   let itemPic = productElement.children[1].src;
-//   // console.log(itemPic);
-//   //gives the index of the img tag in the src url that itemPic gives
-//   let imgSlice = itemPic.indexOf("img");
-//   // console.log(imgSlice);
-//   let slicedImagePath = itemPic.slice(imgSlice);
-//   // console.log(slicedImagePath);
-//   product.img = slicedImagePath;
-//   cart.push(product)
-//   console.log(cart);
-// }
-
-// function checkoutClicked() {
-//   cart.forEach(product => {
-//     console.log(product)
-//   })
-// }
-
-
-
-
-
-
 // Adding Items to the cart with a IIFE//
-
 
 (function addToCart() {
   const cartButton = document.querySelectorAll(".addToCart");
@@ -239,36 +206,37 @@ document
       // console.log(event.target);
 
       if (event.target.parentElement.classList.contains("card")) {
-        console.log(event.target.parentElement); ///console logs the card element containing all the item info
+        //console logs the card element containing all the item info
+        // console.log(event.target.parentElement); 
 
         const items = {}
-        
+
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
-        console.log(itemPic);
+        // console.log(itemPic);
 
         //gives the index of the img tag in the src url that itemPic gives
         let imgSlice = itemPic.indexOf("img");
-        console.log(imgSlice);
+        // console.log(imgSlice);
         let slicedImagePath = itemPic.slice(imgSlice);
-        console.log(slicedImagePath);
+        // console.log(slicedImagePath);
         items.img = slicedImagePath;
 
         //Name is the first child element in the card container. Grabs the text and then assigns it
         let itemName = event.target.parentElement.children[0].textContent;
-        console.log(itemName)
+        // console.log(itemName)
         items.name = itemName;
 
         //get Description
         let itemDescr = event.target.parentElement.children[3].textContent;
-        console.log(itemDescr);
+        // console.log(itemDescr);
         items.description = itemDescr;
 
         //Price is the 4th child element in the card container. Grabs the text and then assigns it
         let itemPrice = event.target.parentElement.children[4].textContent;
-        console.log(itemPrice)
+        // console.log(itemPrice)
         items.price = itemPrice;
-        console.log(items);
+        // console.log(items);
 
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
@@ -290,12 +258,10 @@ document
               </button>
             </div>
           </div>`;
-
         //defining the shopping cart
         const shoppingCart = document.getElementById('cart');
-      
+        //creating and appending the element
         shoppingCart.append(cartItem);
-        
       }
     });
   });
