@@ -53,3 +53,34 @@ button {
   margin-left: 7px;
 } 
 
+.creditOpt {
+  display: flex;
+  /* text-align: center; */
+  width: 350px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(178, 178, 190);
+  margin: 10px;
+  padding: 15px;
+}
+
+#simplify-payment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* text-align: center; */
+}
+
+label {
+  display: flex;
+  justify-content: center;
+}
+
+#cc-cvc {
+  width: 80px;
+}
+
+#process-payment-btn {
+  margin-top: 15px;
+}
