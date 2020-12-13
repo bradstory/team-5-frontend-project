@@ -115,15 +115,9 @@ document.getElementById("coffeeMug").getElementsByClassName("description")[0].in
 document.getElementById("coffeeMug").getElementsByClassName("price")[0].innerHTML = coffeeMug.price;
 
 document.getElementById("whiteElephant").getElementsByClassName("name")[0].innerHTML = whiteElephant.name;
-document
-  .getElementById("whiteElephant")
-  .getElementsByClassName("category")[0].innerHTML = whiteElephant.category;
-document
-  .getElementById("whiteElephant")
-  .getElementsByClassName("description")[0].innerHTML = whiteElephant.description;
-document
-  .getElementById("whiteElephant")
-  .getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
+document.getElementById("whiteElephant").getElementsByClassName("category")[0].innerHTML = whiteElephant.category;
+document.getElementById("whiteElephant").getElementsByClassName("description")[0].innerHTML = whiteElephant.description;
+document.getElementById("whiteElephant").getElementsByClassName("price")[0].innerHTML = whiteElephant.price;
 
 // Adding Items to the cart with a IIFE//
 
@@ -139,7 +133,7 @@ const cart = [];
         //console logs the card element containing all the item info
         // console.log(event.target.parentElement); 
 
-        const item = {};
+        const item = {};        
 
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
@@ -156,6 +150,11 @@ const cart = [];
         let itemName = event.target.parentElement.children[0].textContent;
         // console.log(itemName)
         item.name = itemName;
+
+        //get Category
+        let itemCat = event.target.parentElement.children[2].textContent;
+        // console.log(itemDescr);
+        item.category = itemCat;
 
         //get Description
         let itemDescr = event.target.parentElement.children[3].textContent;
@@ -179,6 +178,7 @@ const cart = [];
             </div>
             <div class="product-details">
               <div class="product-title">${item.name}</div>
+              <div class="product-category">${item.category}</div>
               <p class="product-description">${item.description}</p>
             </div>
             <div class="product-price">$ ${item.price}</div>
@@ -204,7 +204,19 @@ const cart = [];
         
           showPayBtn.classList.add("show");
           showPayBtn.classList.remove("hide");
-        }        
+        }
+
+        function subTotal(a){
+          var subTotal = 0;
+          for(var i=0;i<a.length;i++)
+          subTotal += a[i].price;  
+          
+          document.getElementById("cart-subtotal").innerHTML = subTotal;
+          tax = subTotal * 0.05;
+          document.getElementById("cart-tax").innerHTML = tax;
+          document.getElementById("cart-total").innerHTML = tax + subTotal;
+        }
+        subTotal(cart);
 
       }
     });
@@ -216,5 +228,11 @@ function showPayments(e) {
 
   creditOpt.classList.add("show");
   creditOpt.classList.remove("hide");
+}
+
+// reveal the shopping cart when button is clicked
+  function checkoutToggle(e) {
+  const showCart = document.getElementById("cart");
+  showCart.style.display = "block";
 }
 

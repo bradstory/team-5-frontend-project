@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS Shop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <h1>Welcome to our shop!!</h1>
-        <button onclick="checkoutClicked()">Cart/Check Out</button>
+        <h1>Santa's Gift Shop 2020</h1>
+        <button onclick="checkoutToggle(event)" class="checkout-button"><i class="fa fa-shopping-cart"></i></button>
     </div>
         <div id="products" class="parent">
             <div id="christmasTree" class="card">
@@ -30,7 +33,7 @@
             </div>
             <div id="stocking" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -38,7 +41,7 @@
             </div>
             <div id="uglySweater" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -46,7 +49,7 @@
             </div>
             <div id="ornament" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -54,7 +57,7 @@
             </div>
             <div id="vinylRecord" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -62,7 +65,7 @@
             </div>
             <div id="socks" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -70,7 +73,7 @@
             </div>
             <div id="lumpOfCoal" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -78,7 +81,7 @@
             </div>
             <div id="coffeeMug" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -86,14 +89,14 @@
             </div>
             <div id="whiteElephant" class="card">
                 <div class="name"></div>
-                <img src="" alt="">
+                <img src="img/rainbow-tree.jpg" alt="">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
                 <button class="addToCart">Add to Cart</button>
             </div>
         </div>
-        <div class="shopping-cart" id="cart">
+        <div class="shopping-cart" id="cart" class="hide">
             <div id="displayProducts"></div>
             <button id="paymentButton" class="hide" onclick="showPayments(event)">Proceed to Payment</button>
             <div class="creditOpt hide">
@@ -140,6 +143,20 @@
                         <img src="pics/VisaMastercardAmexDiscoverCards.png" height="150px" width="350px">
                     </div>
                 </form>
+            </div>
+            <div id="totals">
+                <div>
+                  <label>Subtotal</label>
+                  <div class="totals-value" id="cart-subtotal"></div>
+                </div>
+                <div>
+                  <label>Tax (5%)</label>
+                  <div class="totals-value" id="cart-tax"></div>
+                </div>
+                <div>
+                  <label>Grand Total</label>
+                  <div class="totals-value" id="cart-total"></div>
+                </div>
             </div>
         </div>
     <script src="script.js"></script>
