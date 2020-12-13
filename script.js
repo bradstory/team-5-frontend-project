@@ -242,24 +242,28 @@ document
         console.log(event.target.parentElement); ///console logs the card element containing all the item info
 
         const items = {}
+        
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
         console.log(itemPic);
+
         //gives the index of the img tag in the src url that itemPic gives
         let imgSlice = itemPic.indexOf("img");
         console.log(imgSlice);
         let slicedImagePath = itemPic.slice(imgSlice);
         console.log(slicedImagePath);
-
         items.img = slicedImagePath;
+
         //Name is the first child element in the card container. Grabs the text and then assigns it
         let itemName = event.target.parentElement.children[0].textContent;
         console.log(itemName)
         items.name = itemName;
+
         //get Description
         let itemDescr = event.target.parentElement.children[3].textContent;
         console.log(itemDescr);
         items.description = itemDescr;
+
         //Price is the 4th child element in the card container. Grabs the text and then assigns it
         let itemPrice = event.target.parentElement.children[4].textContent;
         console.log(itemPrice)
@@ -287,11 +291,10 @@ document
             </div>
           </div>`;
 
-        //defining the shopping cart and the total element to be used for inserting the cart item
-        const shoppingCart = document.getElementById('shopping-cart');
-        const total = document.getElementsByClassName('cart-total-price');
+        //defining the shopping cart
+        const shoppingCart = document.getElementById('cart');
       
-        shoppingCart.insertBefore(cartItem, total);
+        shoppingCart.append(cartItem);
         
       }
     });
