@@ -193,6 +193,7 @@ document
 
 // Adding Items to the cart with a IIFE//
 
+const cart = [];
 
 (function addToCart() {
   const cartButton = document.querySelectorAll(".addToCart");
@@ -204,7 +205,7 @@ document
         //console logs the card element containing all the item info
         // console.log(event.target.parentElement); 
 
-        const items = {};
+        const item = {};
 
         //Img is the 2nd child element
         let itemPic = event.target.parentElement.children[1].src;
@@ -215,17 +216,17 @@ document
         // console.log(imgSlice);
         let slicedImagePath = itemPic.slice(imgSlice);
         // console.log(slicedImagePath);
-        items.img = slicedImagePath;
+        item.img = slicedImagePath;
 
         //Name is the first child element in the card container. Grabs the text and then assigns it
         let itemName = event.target.parentElement.children[0].textContent;
         // console.log(itemName)
-        items.name = itemName;
+        item.name = itemName;
 
         //get Description
         let itemDescr = event.target.parentElement.children[3].textContent;
         // console.log(itemDescr);
-        items.description = itemDescr;
+        item.description = itemDescr;
 
         //Price is the 4th child element in the card container. Grabs the text and then assigns it
         // let itemPrice = event.target.parentElement.children[4].textContent;
@@ -234,19 +235,19 @@ document
 
         let priceTxt = event.target.parentElement.children[4].textContent;
         let priceNumber = parseInt(priceTxt, 10);
-        items.price = priceNumber;
+        item.price = priceNumber;
 
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
         cartItem.innerHTML = `
                 <div class="product-image">
-              <img src="${items.img}" height="250px" width="250px">
+              <img src="${item.img}" height="250px" width="250px">
             </div>
             <div class="product-details">
-              <div class="product-title">${items.name}</div>
-              <p class="product-description">${items.description}</p>
+              <div class="product-title">${item.name}</div>
+              <p class="product-description">${item.description}</p>
             </div>
-            <div class="product-price">$ ${items.price}</div>
+            <div class="product-price">$ ${item.price}</div>
             <div class="product-quantity">
               <input type="number" value="1" min="1">
             </div>
@@ -260,6 +261,17 @@ document
         const shoppingCart = document.getElementById('displayProducts');
         //creating and appending the element
         shoppingCart.append(cartItem);
+        cart.push(item);
+        // console.log(item);
+        // console.log(cart);
+        
+        if (cart.length > 0) {
+          const showPayBtn = document.getElementById("paymentButton");
+        
+          showPayBtn.classList.add("show");
+          showPayBtn.classList.remove("hide");
+        }        
+
       }
     });
   });
@@ -271,3 +283,4 @@ function showPayments(e) {
   creditOpt.classList.add("show");
   creditOpt.classList.remove("hide");
 }
+
