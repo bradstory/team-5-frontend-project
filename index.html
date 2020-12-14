@@ -129,11 +129,11 @@
             <div class="pay-with-cash">
                 <button class="cash-button" onclick="showPayCash()">Pay with Cash</button>
                 <div id="cash-transaction" class="cash-transaction">
-                    <div class="subtotal">Subtotal:</div>
-                    <div class="tax">Tax:</div>
+                    <div class="subtotal">Subtotal:<div id="subtotalAmount">10</div></div>
+                    <div class="tax" id="tax">Tax:<div id="tax-total-amount"></div></div>
                     <div class="final-total">Amount due:</div>
                     Amount paying in cash?
-                    <input type="number">
+                    <input type="text" id="">
                     <button class="submit">Cha-ching!</button>
                     <p>Change due:</p>
                 </div>

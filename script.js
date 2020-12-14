@@ -267,8 +267,19 @@ document
     });
   });
 })();
+const taxRate = .06;
+const subtotal = document.getElementById('subtotalAmount').textContent;
 
 function showPayCash() {
+  const amountPaying = document.getElementById('cash-amount')
   const cashBlock = document.getElementById('cash-transaction')
   cashBlock.classList.toggle('showMe')
+  //Need to add Functionality to populate Subtotal and Amount due
+  var taxTotal = (subtotal * taxRate);
+  taxTotalAmount = document.getElementById('tax');
+  taxTotalAmount.innerText = taxTotal;
+  if (amountPaying.textContent < finalTotal) {
+    alert('Please pay the full amount!')
+  }
+
 }
