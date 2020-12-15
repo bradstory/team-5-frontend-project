@@ -218,6 +218,19 @@ const cart = [];
         }
         subTotal(cart);
 
+        function reciptTotal(a){
+          var subTotal = 0;
+          for(var i=0;i<a.length;i++)
+          subTotal += a[i].price;
+          
+          document.getElementById("r-cart-subtotal").innerHTML = subTotal;
+          tax = subTotal * 0.05;
+          document.getElementById("r-cart-tax").innerHTML = tax;
+          document.getElementById("r-cart-total").innerHTML = tax + subTotal;
+        }
+        reciptTotal(cart);
+
+
         const shoppingCart2 = document.getElementById('cart');
         const payOptions = document.getElementById('pay-options')
         //creating and appending the element
@@ -254,10 +267,15 @@ function showPayCash() {
   if (amountPaying.textContent < finalTotal) {
     alert('Please pay the full amount!')
   }
-
 }
 
 function checkoutToggle() {
   const newIndow = document.getElementById("cart");
   newIndow.classList.toggle("show");
+}
+
+function toggleReceipt() {
+  const reciptBox = document.getElementById("receipt");
+
+  reciptBox.classList.toggle("show");
 }

@@ -143,6 +143,28 @@ label {
   display: block!important;
 }
 
+.rPopUp {
+  position: fixed; 
+  width: 50%; 
+  top: 25%;
+  left: 25%;
+  background-color: #fff;
+  z-index: 3;
+  padding: 100px 0px;
+}
+
+#rTotals {
+  display: flex;
+  flex-direction: column;
+}
+
+#rTotals div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
 @media only screen and (min-width:600px) {
   #products div {
       flex-basis: 40%;
