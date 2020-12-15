@@ -96,10 +96,25 @@ button:hover {
   position: fixed;
   background-color: #fff;
   width: 50%;
-  left: 25%;
-  top: 25%;
+  top: 10%;
+  bottom: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#displayProducts {
   padding: 100px 0px;
+<<<<<<< HEAD
   border: black solid 5px;
+=======
+  width: 100%;
+}
+
+#nothing-in-cart {
+  background-color: #000;
+>>>>>>> main
 }
 
 #totals {
@@ -142,6 +157,39 @@ label {
 
 .show {
   display: block!important;
+}
+
+.rPopUp {
+  position: fixed;
+  background-color: #fff;
+  width: 50%;
+  top: 10%;
+  bottom: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 25px 0px 0px;
+  cursor: pointer;
+  font-size: 33px;
+}
+
+#rTotals {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0px;
+}
+
+#rTotals div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (min-width:600px) {
