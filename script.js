@@ -218,10 +218,10 @@ const cart = [];
         }
         subTotal(cart);
 
-        const shoppingCart = document.getElementById('cart');
+        const shoppingCart2 = document.getElementById('cart');
         const payOptions = document.getElementById('pay-options')
         //creating and appending the element
-        shoppingCart.insertBefore(cartItem,payOptions);
+        shoppingCart2.insertBefore(cartItem,payOptions);
       }
     });
   });
