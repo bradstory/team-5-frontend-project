@@ -201,9 +201,9 @@ const cart = [];
         // console.log(item);
         // console.log(cart);
 
-        if (cart.length == 0) {
-          document.getElementById("displayProducts").innertext = "There is nothing in your cart";
-        }
+        // if (cart.length == 0) {
+        //   document.getElementById("displayProducts").innertext = "There is nothing in your cart";
+        // }
         
         if (cart.length > 0) {
           const showPayBtn = document.getElementById("paymentButton");
@@ -240,6 +240,7 @@ const cart = [];
         const payOptions = document.getElementById('pay-options');
         //creating and appending the element
         shoppingCart2.insertBefore(cartItem,payOptions);
+        
       }
     });
   });
