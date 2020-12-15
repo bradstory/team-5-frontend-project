@@ -229,7 +229,6 @@ const cart = [];
 
 function showPayments(e) {
   const creditOpt = document.querySelector(".creditOpt");
-
   creditOpt.classList.add("show");
   creditOpt.classList.remove("hide");
 }
@@ -256,3 +255,11 @@ function showPayCash() {
   }
 
 }
+
+// function on() {
+//   document.getElementById("overlay").style.display = "block";
+// }
+
+// function off() {
+//   document.getElementById("overlay").style.display = "none";
+// }
