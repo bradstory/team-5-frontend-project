@@ -142,20 +142,26 @@ label {
   display: block!important;
 }
 
-.overlay {
+.rPopUp {
   position: fixed; 
   width: 50%; 
-  height: 50%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 25%;
+  left: 25%;
   background-color: #fff;
-  z-index: 2; 
+  z-index: 3;
+  padding: 100px 0px;
 }
 
 #rTotals {
-  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+#rTotals div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (min-width:600px) {
