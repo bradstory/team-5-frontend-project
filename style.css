@@ -106,15 +106,12 @@ button:hover {
 
 #displayProducts {
   padding: 100px 0px;
-<<<<<<< HEAD
   border: black solid 5px;
-=======
   width: 100%;
 }
 
 #nothing-in-cart {
   background-color: #000;
->>>>>>> main
 }
 
 #totals {
