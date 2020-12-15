@@ -218,6 +218,10 @@ const cart = [];
         }
         subTotal(cart);
 
+        //everything I'm working on
+        document.getElementById("subTotal").style.right = "100px";
+        // price.style.right = "100px";
+
         const shoppingCart2 = document.getElementById('cart');
         const payOptions = document.getElementById('pay-options')
         //creating and appending the element
