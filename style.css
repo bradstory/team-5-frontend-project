@@ -99,6 +99,7 @@ button:hover {
   left: 25%;
   top: 25%;
   padding: 100px 0px;
+  border: black solid 5px;
 }
 
 #totals {
