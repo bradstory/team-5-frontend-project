@@ -93,6 +93,7 @@ button:hover {
   color: #fff;
 }
 
+
 /* hidden shopping-cart that appears upon checkoutClicked */
 .shopping-cart {
   float: right;
