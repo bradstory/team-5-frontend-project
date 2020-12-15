@@ -237,7 +237,7 @@ function showPayments(e) {
 // reveal the shopping cart when button is clicked
   function checkoutToggle(e) {
   const showCart = document.getElementById("cart");
-  showCart.style.display = "block";
+  showCart.classList.toggle("block");
 }
 
 const taxRate = .06;
@@ -255,4 +255,9 @@ function showPayCash() {
     alert('Please pay the full amount!')
   }
 
+}
+
+function checkoutToggle() {
+  const newIndow = document.getElementById("cart");
+  newIndow.classList.toggle("show");
 }
