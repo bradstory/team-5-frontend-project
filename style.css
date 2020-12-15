@@ -142,6 +142,22 @@ label {
   display: block!important;
 }
 
+.overlay {
+  position: fixed; 
+  width: 50%; 
+  height: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 2; 
+}
+
+#rTotals {
+  color: #000;
+}
+
 @media only screen and (min-width:600px) {
   #products div {
       flex-basis: 40%;

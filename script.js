@@ -254,5 +254,10 @@ function showPayCash() {
   if (amountPaying.textContent < finalTotal) {
     alert('Please pay the full amount!')
   }
+}
 
+function toggleReceipt() {
+  const reciptBox = document.getElementById("receipt");
+
+  reciptBox.classList.toggle("show");
 }

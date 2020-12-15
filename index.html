@@ -174,6 +174,23 @@
                 </div>
             </div>
             </div>
+            <button id="receiptBtn" onclick="toggleReceipt()">Receipt</button>
+            <div class="hide overlay" id="receipt">
+                <div id="rTotals">
+                    <div>
+                      <label>Subtotal</label>
+                      <div class="totals-value" id="r-cart-subtotal"></div>
+                    </div>
+                    <div>
+                      <label>Tax (5%)</label>
+                      <div class="totals-value" id="r-cart-tax"></div>
+                    </div>
+                    <div>
+                      <label>Grand Total</label>
+                      <div class="totals-value" id="r-cart-total"></div>
+                    </div>
+                  </div>    
+            </div>
         </div>
     <script src="script.js"></script>
 </body>
