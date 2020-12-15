@@ -234,11 +234,11 @@ function showPayments(e) {
   creditOpt.classList.remove("hide");
 }
 
-// reveal the shopping cart when button is clicked
-  function checkoutToggle(e) {
-  const showCart = document.getElementById("cart");
-  showCart.classList.toggle("block");
-}
+// // reveal the shopping cart when button is clicked
+//   function checkoutToggle(e) {
+//   const showCart = document.getElementById("cart");
+//   showCart.classList.toggle("show");
+// }
 
 const taxRate = .06;
 const subtotal = document.getElementById('subtotalAmount').textContent;

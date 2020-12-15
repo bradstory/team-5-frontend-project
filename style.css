@@ -79,7 +79,6 @@ button:hover {
   font-size: 13px;
 }
 
-
 .card img {
   height: auto;
   width: 100%;
@@ -93,10 +92,7 @@ button:hover {
   color: #fff;
 }
 
-
-/* hidden shopping-cart that appears upon checkoutClicked */
-.shopping-cart {
-  float: right;
+#cart {
   font-size: 14px;
   font-style: bold;
 }
@@ -143,14 +139,6 @@ label {
   display: block!important;
 }
 
-/* .hideIt {
-display: none;
-}
-
-.showIt {
-  display: block!important;
-} */
-
 @media only screen and (min-width:600px) {
   #products div {
       flex-basis: 40%;
@@ -180,17 +168,15 @@ display: none;
   border: 3px solid black;
   border-radius: 5%;
   background-color: lightgray;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
-  /* flex-direction: column; */
   width: fit-content;
   margin: auto;
   padding: 5px;
 }
+
 .cash-transaction{
   display:none;
 }
+
 .showMe {
   display: block;
 }
