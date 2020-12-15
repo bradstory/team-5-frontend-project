@@ -92,9 +92,13 @@ button:hover {
   color: #fff;
 }
 
-#cart {
-  font-size: 14px;
-  font-style: bold;
+.shopping-cart {
+  position: fixed;
+  background-color: #fff;
+  width: 50%;
+  left: 25%;
+  top: 25%;
+  padding: 100px 0px;
 }
 
 #totals {
