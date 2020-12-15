@@ -204,6 +204,10 @@ const cart = [];
         
           showPayBtn.classList.add("show");
           showPayBtn.classList.remove("hide");
+          //adding show/hide pay with cash button
+          const showPayWithCash = document.getElementById('pay-options')
+          showPayWithCash.classList.add('showMe');
+          showPayWithCash.classList.remove('hide');
         }
 
         function subTotal(a){
@@ -218,10 +222,10 @@ const cart = [];
         }
         subTotal(cart);
 
-        const shoppingCart2 = document.getElementById('cart');
-        const payOptions = document.getElementById('pay-options')
-        //creating and appending the element
-        shoppingCart2.insertBefore(cartItem,payOptions);
+        // const shoppingCart2 = document.getElementById('cart');
+        // const payOptions = document.getElementById('pay-options')
+        // //creating and appending the element
+        // shoppingCart.insertBefore(cartItem,payOptions);
       }
     });
   });
@@ -240,19 +244,43 @@ function showPayments(e) {
   showCart.style.display = "block";
 }
 
-const taxRate = .06;
-const subtotal = document.getElementById('subtotalAmount').textContent;
+// const taxRate = .06;
+// const subtotal = document.getElementById('subtotalAmount').textContent;
 
 function showPayCash() {
-  const amountPaying = document.getElementById('cash-amount')
+  
   const cashBlock = document.getElementById('cash-transaction')
   cashBlock.classList.toggle('showMe')
-  //Need to add Functionality to populate Subtotal and Amount due
-  var taxTotal = (subtotal * taxRate);
-  taxTotalAmount = document.getElementById('tax');
-  taxTotalAmount.innerText = taxTotal;
-  if (amountPaying.textContent < finalTotal) {
-    alert('Please pay the full amount!')
-  }
-
+  //Populates Subtotal
+  var getSub = document.getElementById('pay-subtotal');
+  var putSub = document.getElementById("cart-subtotal").innerHTML
+  getSub.innerHTML = '$ ' + putSub;
+  //Populates the Tax
+  var getTax = document.getElementById('pay-tax')
+  var putTax = document.getElementById("cart-tax").innerHTML
+  getTax.innerHTML = '$ ' + putTax;
+  //Populates the grand Total
+  var getGrand = document.getElementById('pay-total')
+  var putGrand = document.getElementById("cart-total").innerHTML
+  getGrand.innerHTML = '$ ' + putGrand;
 }
+function getChange() {
+  const finalAmount = document.getElementById('cart-total').innerHTML
+  // console.log(finalAmount)
+  const amountPaying = document.getElementById('amount-paying').value
+  // console.log(amountPaying)
+  var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
+  //WIP NEED TO ADD CHANGE FUNCTIONALITY
+  if(amountPaying > finalAmount) {
+    changeDue = amountPaying - finalAmount;
+    console.log(changeDue)
+    
+    document.getElementById('changeDue').innerHTML = new Intl.NumberFormat("en-HOSSDDG",{
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+   }).format(changeDue)
+  } else if(amountPaying < finalAmount){
+    alert('Nice try! No short Changing us!')
+  }
+}////Fix it returning NaN
