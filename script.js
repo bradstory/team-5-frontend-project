@@ -193,11 +193,17 @@ const cart = [];
           </div>`;
         //defining the shopping cart
         const shoppingCart = document.getElementById('displayProducts');
+        const receiptItems = document.getElementById('r-displayProducts');
+        receiptItems.append(cartItem);
         //creating and appending the element
         shoppingCart.append(cartItem);
         cart.push(item);
         // console.log(item);
         // console.log(cart);
+
+        if (cart.length == 0) {
+          document.getElementById("displayProducts").innertext = "There is nothing in your cart";
+        }
         
         if (cart.length > 0) {
           const showPayBtn = document.getElementById("paymentButton");
@@ -230,9 +236,8 @@ const cart = [];
         }
         reciptTotal(cart);
 
-
         const shoppingCart2 = document.getElementById('cart');
-        const payOptions = document.getElementById('pay-options')
+        const payOptions = document.getElementById('pay-options');
         //creating and appending the element
         shoppingCart2.insertBefore(cartItem,payOptions);
       }
@@ -246,12 +251,6 @@ function showPayments(e) {
   creditOpt.classList.add("show");
   creditOpt.classList.remove("hide");
 }
-
-// // reveal the shopping cart when button is clicked
-//   function checkoutToggle(e) {
-//   const showCart = document.getElementById("cart");
-//   showCart.classList.toggle("show");
-// }
 
 const taxRate = .06;
 const subtotal = document.getElementById('subtotalAmount').textContent;

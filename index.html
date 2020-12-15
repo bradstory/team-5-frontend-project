@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS Shop</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7773ee3547.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
 </head>
@@ -96,7 +96,10 @@
                 <button class="addToCart">Add to Cart</button>
             </div>
         </div>
-        <div class="shopping-cart hide overlay" id="cart">
+        <div class="shopping-cart hide" id="cart">
+            <div class="closeBtn" onclick="checkoutToggle(event)">
+                <i class="far fa-times-circle"></i>
+            </div>
             <div id="displayProducts"></div>
             <button id="paymentButton" class="hide" onclick="showPayments()">Proceed to Payment</button>
             <div class="creditOpt hide">
@@ -146,15 +149,15 @@
             </div>
             <div id="totals">
                 <div>
-                  <label>Subtotal</label>
+                  <label>Subtotal<span>&nbsp &#36</span></label>
                   <div class="totals-value" id="cart-subtotal"></div>
                 </div>
                 <div>
-                  <label>Tax (5%)</label>
+                  <label>Tax (5%)<span>&nbsp &#36</span></label>
                   <div class="totals-value" id="cart-tax"></div>
                 </div>
                 <div>
-                  <label>Grand Total</label>
+                  <label>Grand Total<span>&nbsp &#36</span></label>
                   <div class="totals-value" id="cart-total"></div>
                 </div>
               </div>
@@ -175,25 +178,26 @@
             </div>
             </div>
             <button id="receiptBtn" onclick="toggleReceipt()">Receipt</button>
-            <div class="hide rPopUp" id="receipt">
-                <div id="rTotals">
-                    <button onclick="toggleReceipt()">
-                        <i class="far fa-times-circle"></i>
-                    </button>
-                    <div>
-                      <label>Subtotal<span>&nbsp &#36</span></label>
-                      <div class="totals-value" id="r-cart-subtotal"></div>
-                    </div>
-                    <div>
-                      <label>Tax (5%)<span>&nbsp &#36</span></label>
-                      <div class="totals-value" id="r-cart-tax"></div>
-                    </div>
-                    <div>
-                      <label>Grand Total<span>&nbsp &#36</span></label>
-                      <div class="totals-value" id="r-cart-total"></div>
-                    </div>
-                </div>    
+        </div>
+        <div class="hide rPopUp" id="receipt">
+            <div class="closeBtn" onclick="toggleReceipt()">
+                <i class="far fa-times-circle"></i>
             </div>
+            <div id="r-displayProducts"></div>
+            <div id="rTotals">
+                <div>
+                  <label>Subtotal<span>&nbsp &#36</span></label>
+                  <div class="totals-value" id="r-cart-subtotal"></div>
+                </div>
+                <div>
+                  <label>Tax (5%)<span>&nbsp &#36</span></label>
+                  <div class="totals-value" id="r-cart-tax"></div>
+                </div>
+                <div>
+                  <label>Grand Total<span>&nbsp &#36</span></label>
+                  <div class="totals-value" id="r-cart-total"></div>
+                </div>
+            </div>    
         </div>
     <script src="script.js"></script>
 </body>

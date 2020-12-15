@@ -96,9 +96,21 @@ button:hover {
   position: fixed;
   background-color: #fff;
   width: 50%;
-  left: 25%;
-  top: 25%;
+  top: 10%;
+  bottom: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#displayProducts {
   padding: 100px 0px;
+  width: 100%;
+}
+
+#nothing-in-cart {
+  background-color: #000;
 }
 
 #totals {
@@ -144,18 +156,29 @@ label {
 }
 
 .rPopUp {
-  position: fixed; 
-  width: 50%; 
-  top: 25%;
-  left: 25%;
+  position: fixed;
   background-color: #fff;
-  z-index: 3;
-  padding: 100px 0px;
+  width: 50%;
+  top: 10%;
+  bottom: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 25px 0px 0px;
+  cursor: pointer;
+  font-size: 33px;
 }
 
 #rTotals {
   display: flex;
   flex-direction: column;
+  padding: 100px 0px;
 }
 
 #rTotals div {
