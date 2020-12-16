@@ -227,6 +227,8 @@ const cart = [];
         }
         subTotal(cart);
 
+        document.getElementById("subTotal").style.right = "100px";
+
         function reciptTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
