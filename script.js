@@ -10,61 +10,61 @@ class product {
 
 const cristmasTree = new product(
   "Christmas Tree",
-  "Traditional",
+  "Nice",
   "Decorate your house with this beautify traditional style Christmas Tree!",
   100
 );
 const mask = new product(
   "Christmas Mask",
-  "Traditional",
+  "Nice",
   "Protect yourself in style with this Christmas mask!",
   20
 );
 const stocking = new product(
   "Christmas Stocking",
-  "Traditional",
+  "Nice",
   "Decorate your chimney with yule tidings this year with this beautiful Christmas Stocking",
   25
 );
 const uglySweater = new product(
   "Ugly Sweater",
-  "Traditional",
+  "Naughty",
   "Be the life of the party this year with this one-of-a-kind uggo sweater",
   55
 );
 const ornament = new product(
   "Christmas Ornament",
-  "Traditional",
+  "Nice",
   "Put some Christmas cheer on your tree this year with this special ornament",
   15
 );
 const vinylRecord = new product(
   "Christmas Vinyl Record",
-  "Traditional",
+  "Nice",
   "As good or better than Michael Bublé",
   30
 );
 const socks = new product(
   "Socks",
-  "Traditional",
+  "Nice",
   "It's like a stocking but for your feet.",
   15
 );
 const lumpOfCoal = new product(
   "Lump Of Coal",
-  "Traditional",
+  "Naughty",
   "Someone's been naughty this year.",
   500
 );
 const coffeeMug = new product(
   "Coffee Mug",
-  "Traditional",
+  "Nice",
   "You'll need something stronger than coffee to get through the holiday's this year.",
   20
 );
 const whiteElephant = new product(
   "White Elephant",
-  "Traditional",
+  "Naughty",
   "As George Carlin would say - Could be meat, could be cake",
   1000
 );
@@ -128,6 +128,107 @@ const cart = [];
 
   cartButton.forEach(function (button) {
     button.addEventListener("click", function (event) {
+      console.log(event.target);
+      if (event.target.parentElement.classList.contains("card")) {
+        //console logs the card element containing all the item info
+        console.log(event.target.parentElement); 
+
+        const item = {};        
+
+        //Img is the 2nd child element
+        let itemPic = event.target.parentElement.children[1].src;
+        // console.log(itemPic);
+
+        //gives the index of the img tag in the src url that itemPic gives
+        let imgSlice = itemPic.indexOf("img");
+        // console.log(imgSlice);
+        let slicedImagePath = itemPic.slice(imgSlice);
+        // console.log(slicedImagePath);
+        item.img = slicedImagePath;
+
+        //Name is the first child element in the card container. Grabs the text and then assigns it
+        let itemName = event.target.parentElement.children[0].textContent;
+        // console.log(itemName)
+        item.name = itemName;
+
+        //get Category
+        let itemCat = event.target.parentElement.children[2].textContent;
+        // console.log(itemCat);
+        item.category = itemCat;
+
+        //get Description
+        let itemDescr = event.target.parentElement.children[3].textContent;
+        // console.log(itemDescr);
+        item.description = itemDescr;
+
+        //Price is the 4th child element in the card container. Grabs the text and then assigns it
+        // let itemPrice = event.target.parentElement.children[4].textContent;
+        
+        // items.price = itemPrice;
+
+        let priceTxt = event.target.parentElement.children[4].textContent;
+        let priceNumber = parseInt(priceTxt, 10);
+        item.price = priceNumber;
+
+        const cartItem = document.createElement('div');
+        cartItem.classList.add("product");
+        cartItem.innerHTML = `
+        <div>
+        <img src="${item.img}" height="auto" width="250px">
+      </div>
+      <div class="product-details">
+       <div class="product-title">${item.name}</div>
+       <div class="product-category">${item.category}</div>
+       <div class="product-description">${item.description}</div>
+        <div class="product-price">$ ${item.price}</div>
+      </div>
+      </div>`;
+        
+          cart.push(item);
+          
+          function subTotal(a){
+          var subTotal = 0;
+          for(var i=0;i<a.length;i++)
+          subTotal += a[i].price;  
+          
+          document.getElementById("cart-subtotal").innerHTML = subTotal;
+          tax = subTotal * 0.05;
+          document.getElementById("cart-tax").innerHTML = tax;
+          document.getElementById("cart-total").innerHTML = tax + subTotal;
+        }
+        
+        subTotal(cart);
+        
+        if (cart.length > 0) {
+          const payCard = document.getElementById("payCard");
+
+          payCard.classList.add("show");
+          payCard.classList.remove("hide");
+          //adding show/hide pay with cash button
+          const showPayWithCash = document.getElementById('pay-options')
+          showPayWithCash.classList.add('showMe');
+          showPayWithCash.classList.remove('hide');
+          // adding Subtotal, Tax, Final amount to show/hide with cart
+          const totals = document.getElementById('totals');
+          totals.classList.add('showMe')
+        }
+
+        const displayProducts = document.getElementById('displayProducts');
+        const innerProdChild = document.getElementById('prodPlace');
+        //creating and appending the element
+        displayProducts.append(cartItem);
+      }
+    });
+  });
+})();
+
+const receipt = [];
+
+(function addToReceipt() {
+  const cartButton = document.querySelectorAll(".addToCart");
+
+  cartButton.forEach(function (button) {
+    button.addEventListener("click", function (event) {
       // console.log(event.target);
       if (event.target.parentElement.classList.contains("card")) {
         //console logs the card element containing all the item info
@@ -173,63 +274,26 @@ const cart = [];
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
         cartItem.innerHTML = `
-                <div class="product-image">
-              <img src="${item.img}" height="250px" width="250px">
-            </div>
-            <div class="product-details">
-              <div class="product-title">${item.name}</div>
-              <div class="product-category">${item.category}</div>
-              <p class="product-description">${item.description}</p>
-            </div>
-            <div class="product-price">$ ${item.price}</div>
-            <div class="product-quantity">
-              <input type="number" value="1" min="1">
-            </div>
-            <div class="product-removal">
-              <button class="remove-product">
-                Remove
-              </button>
-            </div>
-          </div>`;
-        //defining the shopping cart
-        const shoppingCart = document.getElementById('displayProducts');
+        <div>
+        <img src="${item.img}" height="auto" width="250px">
+      </div>
+      <div class="product-details">
+       <div class="product-title">${item.name}</div>
+       <div class="product-category">${item.category}</div>
+       <div class="product-description">${item.description}</div>
+        <div class="product-price">$ ${item.price}</div>
+      </div>
+      </div>`;
+
+      //defining the shopping cart
+        const ReceiptCart = document.getElementById('r-displayProducts');
         //creating and appending the element
-        shoppingCart.append(cartItem);
-        cart.push(item);
+        ReceiptCart.append(cartItem);
+        receipt.push(item);
 
-        // if (cart.length == 0) {
-        //   document.getElementById("displayProducts").innertext = "There is nothing in your cart";
-        // }
         
-        if (cart.length > 0) {
-          const showPayBtn = document.getElementById("paymentButton");
-        
-          showPayBtn.classList.add("show");
-          showPayBtn.classList.remove("hide");
-          //adding show/hide pay with cash button
-          const showPayWithCash = document.getElementById('pay-options')
-          showPayWithCash.classList.add('showMe');
-          showPayWithCash.classList.remove('hide');
-          // adding Subtotal, Tax, Final amount to show/hide with cart
-          const totals = document.getElementById('totals');
-          totals.classList.add('showMe')
-        }
-
-        function subTotal(a){
-          var subTotal = 0;
-          for(var i=0;i<a.length;i++)
-          subTotal += a[i].price;  
-          
-          document.getElementById("cart-subtotal").innerHTML = subTotal;
-          tax = subTotal * 0.05;
-          document.getElementById("cart-tax").innerHTML = tax;
-          document.getElementById("cart-total").innerHTML = tax + subTotal;
-        }
-        subTotal(cart);
-
-        document.getElementById("subTotal").style.right = "100px";
-
         function reciptTotal(a){
+          var amountPaid = document.getElementById('amount-paying').value
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;
@@ -238,22 +302,23 @@ const cart = [];
           tax = subTotal * 0.05;
           document.getElementById("r-cart-tax").innerHTML = tax;
           document.getElementById("r-cart-total").innerHTML = tax + subTotal;
+          
         }
-        reciptTotal(cart);
+        reciptTotal(receipt);
 
-        const shoppingCart2 = document.getElementById('cart');
-        const payOptions = document.getElementById('pay-options');
+        const receiptCart2 = document.getElementById('receipt');
+        const receiptDiv = document.getElementById('r-displayProducts');
         //creating and appending the element
-        shoppingCart2.insertBefore(cartItem,payOptions);
+        receiptCart2.insertBefore(cartItem,receiptDiv);
       }
     });
   });
 })();
 
+
 function showPayments(e) {
   const creditOpt = document.querySelector(".creditOpt");
-  creditOpt.classList.add("show");
-  creditOpt.classList.remove("hide");
+  creditOpt.classList.toggle("show");
 }
 
 // reveal the shopping cart when button is clicked
@@ -282,13 +347,17 @@ function showPayCash() {
   var putGrand = document.getElementById("cart-total").innerHTML
   getGrand.innerHTML = '$ ' + putGrand;
 }
+
 function getChange() {
+  //Grabs the innerHTML of Final total then parses it as an integer
   const finalAmount = document.getElementById('cart-total').innerHTML
   // console.log(finalAmount)
-  const amountPaying = document.getElementById('amount-paying').value
+  const amountPaying = parseInt(document.getElementById('amount-paying').value)///////////////
   // console.log(amountPaying)
   var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
-  if(amountPaying > finalAmount) {
+  if(amountPaying < finalAmount) {
+    alert('Nice try! No short Changing us!')
+  } else if(amountPaying > finalAmount) {
     changeDue = amountPaying - finalAmount;
     console.log(changeDue)
     
@@ -297,9 +366,10 @@ function getChange() {
       currency: 'USD',
       minimumFractionDigits: 2,
    }).format(changeDue)
-  } else if(amountPaying < finalAmount){
-    alert('Nice try! No short Changing us!')
-  }
+   //Pushes values to receipt
+   document.getElementById('r-cart-amount-paid').innerHTML = amountPaying;
+   document.getElementById('r-cart-change').innerHTML = document.getElementById('changeDue').innerHTML
+  } 
 }
 
 function checkoutToggle() {
@@ -307,8 +377,23 @@ function checkoutToggle() {
   newIndow.classList.toggle("show");
 }
 
-function toggleReceipt() {
+function toggleReceipt(e) {
+  e.preventDefault();
   const reciptBox = document.getElementById("receipt");
 
   reciptBox.classList.toggle("show");
 }
+
+
+function showHideChangeDue() {
+ const ramountPaid = document.getElementById("r-paid");
+ const ramountChange = document.getElementById("r-change");
+ const amountPaying2 = parseInt(document.getElementById('amount-paying').value)///////////////
+
+  if (amountPaying2 !== "") {
+    ramountPaid.classList.add("show");
+    ramountChange.classList.remove("hide");
+  }
+}
+
+showHideChangeDue();

@@ -104,6 +104,8 @@
             <h2>Your Shopping Cart</h2>            
             <div id="displayProducts"></div>
             <button id="paymentButton" class="hide" onclick="showPayments()">Pay with credit or debit</button>
+            <div id="displayProducts"><span id="prodPlace"></span></div>
+            <button id="paymentButton" class="hide" onclick="showPayments()">Proceed to Payment</button>
             <div id="totals" class="hide">
                 <div>
                   <label>Subtotal<span>&nbsp &nbsp &nbsp &nbsp &nbsp &#36</span></label>
@@ -118,7 +120,7 @@
                   <div class="totals-value" id="cart-total"></div>
                 </div>
               </div>
-            <div id="pay-options" class="hide">
+              <div id="pay-options" class="hide">
                 <div class="pay-with-cash">
                     <button class="cash-button" onclick="showPayCash()">Pay with Cash</button>
                     <div id="cash-transaction" class="cash-transaction">
@@ -129,11 +131,12 @@
                         <input type="text" id="amount-paying" placeholder="$$$">
                         <button id="getMeSomeChange"onclick="getChange()">Cha-ching!</button>
                         <p>Change due:<div id="changeDue"></div></p>
+                        <button onclick="toggleReceipt(event)">View Receipt</button>
                     </div>
                 </div>
-                </div>
-            <button id="paymentButton" class="hide" onclick="showPayments(event)">Proceed to Payment</button>
-            <div class="creditOpt hide">
+                </div>  
+                <button id="payCard" class="hide" onclick="showPayments(event)">Pay With Card</button>
+                <div class="creditOpt hide">
                 <form id="simplify-payment-form" action="" method="POST">
                     <div>
                         <label>Credit Card Number: </label>
@@ -172,7 +175,7 @@
                             <option value="22">2030</option>
                         </select>
                     </div>
-                    <button id=process-payment-btn onclick="processPayment()">Process Payment</button>
+                    <button onclick="toggleReceipt(event)">Process Payment</button>
                     <div class="cards">
                         <img src="pics/VisaMastercardAmexDiscoverCards.png" height="150px" width="350px">
                     </div>
@@ -213,8 +216,12 @@
         <div class="hide rPopUp" id="receipt">
             <h1>Thank you for Shopping at Santa's Gift Shop</h1>
             <div class="closeBtn" onclick="toggleReceipt()">
+        </div>
+        <div class="hide rPopUp" id="receipt">
+            <div class="closeBtn" onclick="toggleReceipt(event)">
                 <i class="far fa-times-circle"></i>
             </div>
+            <h2>Your Receipt</h2>            
             <div id="r-displayProducts"></div>
             <div id="rTotals">
                 <div>
@@ -228,6 +235,14 @@
                 <div>
                   <label>Grand Total<span>&nbsp &#36</span></label>
                   <div class="totals-value" id="r-cart-total"></div>
+                </div>
+                <div id="r-paid" class="hide">
+                    <label>Amount paid<span>&nbsp &#36</span></label>
+                    <div class="totals-value" id="r-cart-amount-paid"></div>
+                </div>
+                <div id="r-change" class="hide">
+                    <label>Change Due<span>&nbsp </span></label>
+                    <div class="totals-value" id="r-cart-change"></div>
                 </div>
             </div>    
         </div>
