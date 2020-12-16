@@ -122,6 +122,7 @@ document.getElementById("whiteElephant").getElementsByClassName("price")[0].inne
 // Adding Items to the cart with a IIFE//
 
 const cart = [];
+const receipt = [];
 
 (function addToCart() {
   const cartButton = document.querySelectorAll(".addToCart");
@@ -195,9 +196,11 @@ const cart = [];
         const shoppingCart = document.getElementById('displayProducts');
         const receiptItems = document.getElementById('r-displayProducts');
         receiptItems.append(cartItem);
+        receipt.push(item);
         //creating and appending the element
         shoppingCart.append(cartItem);
         cart.push(item);
+
         // console.log(item);
         // console.log(cart);
 
@@ -234,13 +237,15 @@ const cart = [];
           document.getElementById("r-cart-tax").innerHTML = tax;
           document.getElementById("r-cart-total").innerHTML = tax + subTotal;
         }
-        reciptTotal(cart);
+        reciptTotal(receipt);
 
         const shoppingCart2 = document.getElementById('cart');
+        const receiptItems2 = document.getElementById('receipt');
         const payOptions = document.getElementById('pay-options');
+        const receiptItemsDiv = document.getElementById('r-displayProducts');
         //creating and appending the element
         shoppingCart2.insertBefore(cartItem,payOptions);
-        
+        receiptItems2.insertBefore(cartItem,receiptItemsDiv);
       }
     });
   });
