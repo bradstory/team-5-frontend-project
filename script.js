@@ -184,7 +184,7 @@ const cart = [];
             <div class="product-price">$ ${item.price}</div>
           </div>`;
         
-          function subTotal(a){
+        function subTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;  
@@ -194,10 +194,9 @@ const cart = [];
           document.getElementById("cart-tax").innerHTML = tax;
           document.getElementById("cart-total").innerHTML = tax + subTotal;
         }
-        subTotal(cart);
         
         cart.push(item);
-
+        subTotal(cart);
         
         if (cart.length > 0) {
           const payCard = document.getElementById("payCard");
@@ -216,7 +215,7 @@ const cart = [];
         const displayProducts = document.getElementById('displayProducts');
         const innerProdChild = document.getElementById('prodPlace');
         //creating and appending the element
-        displayProducts.append(cartItem,innerProdChild);
+        displayProducts.append(cartItem);
       }
     });
   });
