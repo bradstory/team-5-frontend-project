@@ -2,6 +2,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   padding: 0px;
   margin: 0px;
+  background-image: url("snowflakes.jpg");
+  background-repeat: repeat;
 }
 
 h1 {
@@ -35,13 +37,13 @@ button:hover {
 #products {
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: transparent;
   justify-content: space-around;
   padding: 10px;
 }
 
 .card {
-  border: 10px solid #098d3c;
+  border: 10px solid #098b3b;
   border-style: double;
   border-radius: 10px;
   padding: 10px;
@@ -49,6 +51,8 @@ button:hover {
   display: flex;
   align-content: center;
   flex-direction: column;
+  background: rgba(252, 252, 252, 0.9);
+  opacity: 1;
 }
 
 .name {
@@ -95,28 +99,66 @@ button:hover {
 .shopping-cart {
   position: fixed;
   background-color: #fff;
-  width: 50%;
-  top: 10%;
-  bottom: 10%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
   overflow-y:auto;
   overflow-x:hidden;
 }
 
-#displayProducts {
+/* #displayProducts {
   padding: 100px 0px;
   border: black solid 5px;
   width: 100%;
-}
+} */
 
 #nothing-in-cart {
   background-color: #000;
 }
 
 #totals {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 340px;
+  margin-left: 0px;
+  margin-top: 30px;
+  margin-bottom: 30px;  
 }
+
+#totals div {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+#cart {
+  padding: 0px 45px 50px 60px;
+  /* text-align: center; */
+}
+
+h2 {
+  font-size: 30px;
+  color: #ff392f;
+  font-family: 'Ranchers', cursive;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/* #rTotals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+  margin-left: 320px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#rTotals div {
+  display: flex;
+  flex-direction: row;
+} */
+
 
 .creditOpt {
   display: flex;
@@ -199,6 +241,17 @@ label {
   #products div {
       flex-basis: 28%;
   }
+  .shopping-cart {
+    position: fixed;
+    background-color: #fff;
+    width: 60%;
+    top: 10%;
+    bottom: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    overflow-y:auto;
+    overflow-x:hidden;
+  }
 }
 
 @media only screen and (min-width:1150px) {
@@ -224,7 +277,6 @@ label {
   align-items: center;
   flex-direction: column; 
   width: fit-content;
-  
   
   
 }
