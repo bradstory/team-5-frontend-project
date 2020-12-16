@@ -173,17 +173,18 @@ const cart = [];
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
         cartItem.innerHTML = `
-                <div class="product-image">
-              <img src="${item.img}" height="auto" width="250px">
-            </div>
-            <div class="product-details">
-              <div class="product-title">${item.name}</div>
-              <div class="product-category">${item.category}</div>
-              <p class="product-description">${item.description}</p>
-            </div>
-            <div class="product-price">$ ${item.price}</div>
-          </div>`;
+        <div>
+        <img src="${item.img}" height="auto" width="250px">
+      </div>
+      <div class="product-details">
+       <div class="product-title">${item.name}</div>
+       <div class="product-category">${item.category}</div>
+       <div class="product-description">${item.description}</div>
+        <div class="product-price">$ ${item.price}</div>
+      </div>
+      </div>`;
         
+          cart.push(item);
           function subTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
@@ -196,8 +197,6 @@ const cart = [];
         }
         subTotal(cart);
         
-        cart.push(item);
-
         
         if (cart.length > 0) {
           const payCard = document.getElementById("payCard");
@@ -274,17 +273,18 @@ const receipt = [];
         const cartItem = document.createElement('div');
         cartItem.classList.add("product");
         cartItem.innerHTML = `
-                <div class="product-image">
-              <img src="${item.img}" height="auto" width="250px">
-            </div>
-            <div class="product-details">
-              <div class="product-title">${item.name}</div>
-              <div class="product-category">${item.category}</div>
-              <p class="product-description">${item.description}</p>
-            </div>
-            <div class="product-price">$ ${item.price}</div>
-          </div>`;
-        //defining the shopping cart
+        <div>
+        <img src="${item.img}" height="auto" width="250px">
+      </div>
+      <div class="product-details">
+       <div class="product-title">${item.name}</div>
+       <div class="product-category">${item.category}</div>
+       <div class="product-description">${item.description}</div>
+        <div class="product-price">$ ${item.price}</div>
+      </div>
+      </div>`;
+
+      //defining the shopping cart
         const ReceiptCart = document.getElementById('r-displayProducts');
         //creating and appending the element
         ReceiptCart.append(cartItem);
@@ -370,7 +370,8 @@ function checkoutToggle() {
   newIndow.classList.toggle("show");
 }
 
-function toggleReceipt() {
+function toggleReceipt(e) {
+  e.preventDefault();
   const reciptBox = document.getElementById("receipt");
 
   reciptBox.classList.toggle("show");
