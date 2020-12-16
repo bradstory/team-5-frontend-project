@@ -24,6 +24,14 @@ button:hover {
   cursor: pointer;
 }
 
+#cart {
+  border:green solid 10px;
+  border-radius: 5px;
+  border-style: double;
+  padding: 10px;
+  /* background-color: #000; */
+}
+
 .checkout-button {
   font-size: 30px;
   border-radius: 10px;
@@ -84,6 +92,11 @@ button:hover {
   width: 100%;
 }
 
+#receipt {
+  border: red solid 10px;
+  border-radius: 2px;
+}
+
 .addToCart {
   border-radius: 10px;
   background-color: #098d3c;
@@ -106,7 +119,6 @@ button:hover {
 
 #displayProducts {
   padding: 100px 0px;
-  border: black solid 5px;
   width: 100%;
 }
 
