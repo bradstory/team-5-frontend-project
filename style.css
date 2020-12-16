@@ -26,6 +26,16 @@ button:hover {
   cursor: pointer;
 }
 
+#cart {
+  border:green solid 10px;
+  border-radius: 5px;
+  border-style: double;
+  padding: 10px;
+  width: 335px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .checkout-button {
   font-size: 30px;
   border-radius: 10px;
@@ -85,8 +95,13 @@ button:hover {
 }
 
 .card img {
-  height: auto;
+  height: ;
   width: 100%;
+}
+
+#receipt {
+  border: red solid 10px;
+  border-radius: 2px;
 }
 
 .addToCart {
@@ -108,6 +123,8 @@ button:hover {
   padding: 15px 30px;
 }
 
+/* #displayProducts {
+  padding: 100px 0px;
 
 .product {
   width: 100%;
@@ -164,6 +181,11 @@ button:hover {
   font-size: 20px;
 }
 
+/* #cart {
+  padding: 0px 45px 50px 60px;
+  text-align: center;
+} */
+
 h2 {
   font-size: 30px;
   color: #ff392f;
@@ -174,11 +196,12 @@ h2 {
 
 .creditOpt {
   display: flex;
-  width: 350px;
+  width: 250px;
   height: 300px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: rgb(178, 178, 190);
+  margin-left: 25px;
   margin: 20px 0px;
   padding: 15px;
 }
