@@ -187,14 +187,14 @@ label {
 .rPopUp {
   position: fixed;
   background-color: #fff;
-  width: 50%;
-  top: 10%;
-  bottom: 10%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
   overflow-y:auto;
   overflow-x:hidden;
 }
+
+
 
 .closeBtn {
   display: flex;
@@ -217,6 +217,11 @@ label {
   text-align: center;
 }
 
+#receipt {
+  padding: 0px 45px 50px 60px;
+
+}
+
 @media only screen and (min-width:600px) {
   #products div {
       flex-basis: 40%;
@@ -237,6 +242,18 @@ label {
     margin-right: 15%;
     overflow-y:auto;
     overflow-x:hidden;
+  }
+  .rPopUp {
+    position: fixed;
+    background-color: #fff;
+    width: 60%;
+    top: 10%;
+    bottom: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    border: 1px double green;
   }
 }
 
