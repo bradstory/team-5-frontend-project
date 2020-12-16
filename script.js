@@ -344,6 +344,7 @@ function showPayCash() {
   var putGrand = document.getElementById("cart-total").innerHTML
   getGrand.innerHTML = '$ ' + putGrand;
 }
+
 function getChange() {
   const finalAmount = document.getElementById('cart-total').innerHTML
   // console.log(finalAmount)

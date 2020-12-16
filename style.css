@@ -134,7 +134,7 @@ button:hover {
 }
 
 #cart {
-  padding: 0px 45px 50px 60px;
+  padding: 0px 20px 20px 20px;
   /* text-align: center; */
 }
 
@@ -218,8 +218,7 @@ label {
 }
 
 #receipt {
-  padding: 0px 45px 50px 60px;
-
+  padding: 0px 20px 20px 20px;
 }
 
 @media only screen and (min-width:600px) {
