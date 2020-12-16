@@ -128,10 +128,10 @@ const cart = [];
 
   cartButton.forEach(function (button) {
     button.addEventListener("click", function (event) {
-      // console.log(event.target);
+      console.log(event.target);
       if (event.target.parentElement.classList.contains("card")) {
         //console logs the card element containing all the item info
-        // console.log(event.target.parentElement); 
+        console.log(event.target.parentElement); 
 
         const item = {};        
 
@@ -153,7 +153,7 @@ const cart = [];
 
         //get Category
         let itemCat = event.target.parentElement.children[2].textContent;
-        // console.log(itemDescr);
+        // console.log(itemCat);
         item.category = itemCat;
 
         //get Description
@@ -348,9 +348,9 @@ function showPayCash() {
 
 function getChange() {
   //Grabs the innerHTML of Final total then parses it as an integer
-  const finalAmount = parseInt(document.getElementById('cart-total').innerHTML)
+  const finalAmount = document.getElementById('cart-total').innerHTML
   // console.log(finalAmount)
-  const amountPaying = document.getElementById('amount-paying').value
+  const amountPaying = parseInt(document.getElementById('amount-paying').value)///////////////
   // console.log(amountPaying)
   var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
   if(amountPaying < finalAmount) {
@@ -366,7 +366,7 @@ function getChange() {
    }).format(changeDue)
    //Pushes values to receipt
    document.getElementById('r-cart-amount-paid').innerHTML = amountPaying;
-   document.getElementById('r-cart-change').innerHTML = changeDue;
+   document.getElementById('r-cart-change').innerHTML = document.getElementById('changeDue').innerHTML
   } 
 }
 
