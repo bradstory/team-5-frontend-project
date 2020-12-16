@@ -383,3 +383,17 @@ function toggleReceipt(e) {
 
   reciptBox.classList.toggle("show");
 }
+
+
+function showHideChangeDue() {
+ const ramountPaid = document.getElementById("r-paid");
+ const ramountChange = document.getElementById("r-change");
+ const amountPaying2 = parseInt(document.getElementById('amount-paying').value)///////////////
+
+  if (amountPaying2 !== "") {
+    ramountPaid.classList.add("show");
+    ramountChange.classList.remove("hide");
+  }
+}
+
+showHideChangeDue();

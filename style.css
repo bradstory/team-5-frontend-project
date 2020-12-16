@@ -218,6 +218,11 @@ label {
   bottom: 0;
   overflow-y:auto;
   overflow-x:hidden;
+  padding: 15px 30px;
+}
+
+.rPopUp h2 {
+  color: green;
 }
 
 .closeBtn {
@@ -261,6 +266,7 @@ label {
     margin-right: 20%;
     overflow-y:auto;
     overflow-x:hidden;
+    border: 2px solid red;
   }
   .rPopUp {
     position: fixed;
@@ -272,7 +278,7 @@ label {
     margin-right: 20%;
     overflow-y:auto;
     overflow-x:hidden;
-    border: 1px double green;
+    border: 2px solid green;
   }
 }
 
@@ -288,7 +294,6 @@ label {
   }
  
 }
-
 
 .cash-transaction {
   border: 1px solid black;
