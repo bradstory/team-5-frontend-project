@@ -128,10 +128,10 @@ const cart = [];
 
   cartButton.forEach(function (button) {
     button.addEventListener("click", function (event) {
-      // console.log(event.target);
+      console.log(event.target);
       if (event.target.parentElement.classList.contains("card")) {
         //console logs the card element containing all the item info
-        // console.log(event.target.parentElement); 
+        console.log(event.target.parentElement); 
 
         const item = {};        
 
@@ -153,7 +153,7 @@ const cart = [];
 
         //get Category
         let itemCat = event.target.parentElement.children[2].textContent;
-        // console.log(itemDescr);
+        // console.log(itemCat);
         item.category = itemCat;
 
         //get Description
@@ -184,7 +184,7 @@ const cart = [];
             <div class="product-price">$ ${item.price}</div>
           </div>`;
         
-          function subTotal(a){
+        function subTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;  
@@ -194,10 +194,9 @@ const cart = [];
           document.getElementById("cart-tax").innerHTML = tax;
           document.getElementById("cart-total").innerHTML = tax + subTotal;
         }
-        subTotal(cart);
         
         cart.push(item);
-
+        subTotal(cart);
         
         if (cart.length > 0) {
           const payCard = document.getElementById("payCard");
@@ -216,7 +215,7 @@ const cart = [];
         const displayProducts = document.getElementById('displayProducts');
         const innerProdChild = document.getElementById('prodPlace');
         //creating and appending the element
-        displayProducts.append(cartItem,innerProdChild);
+        displayProducts.append(cartItem);
       }
     });
   });
@@ -292,6 +291,7 @@ const receipt = [];
 
         
         function reciptTotal(a){
+          var amountPaid = document.getElementById('amount-paying').value
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;
@@ -300,6 +300,7 @@ const receipt = [];
           tax = subTotal * 0.05;
           document.getElementById("r-cart-tax").innerHTML = tax;
           document.getElementById("r-cart-total").innerHTML = tax + subTotal;
+          
         }
         reciptTotal(receipt);
 
@@ -346,12 +347,15 @@ function showPayCash() {
 }
 
 function getChange() {
+  //Grabs the innerHTML of Final total then parses it as an integer
   const finalAmount = document.getElementById('cart-total').innerHTML
   // console.log(finalAmount)
-  const amountPaying = document.getElementById('amount-paying').value
+  const amountPaying = parseInt(document.getElementById('amount-paying').value)///////////////
   // console.log(amountPaying)
   var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
-  if(amountPaying > finalAmount) {
+  if(amountPaying < finalAmount) {
+    alert('Nice try! No short Changing us!')
+  } else if(amountPaying > finalAmount) {
     changeDue = amountPaying - finalAmount;
     console.log(changeDue)
     
@@ -360,9 +364,10 @@ function getChange() {
       currency: 'USD',
       minimumFractionDigits: 2,
    }).format(changeDue)
-  } else if(amountPaying < finalAmount){
-    alert('Nice try! No short Changing us!')
-  }
+   //Pushes values to receipt
+   document.getElementById('r-cart-amount-paid').innerHTML = amountPaying;
+   document.getElementById('r-cart-change').innerHTML = document.getElementById('changeDue').innerHTML
+  } 
 }
 
 function checkoutToggle() {
