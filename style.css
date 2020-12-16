@@ -31,7 +31,7 @@ button:hover {
   border-radius: 5px;
   border-style: double;
   padding: 10px;
-  width: auto;
+  width: 335px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -94,7 +94,7 @@ button:hover {
 }
 
 .card img {
-  height: auto;
+  height: ;
   width: 100%;
 }
 
@@ -146,10 +146,10 @@ button:hover {
   font-size: 20px;
 }
 
-#cart {
+/* #cart {
   padding: 0px 45px 50px 60px;
-  /* text-align: center; */
-}
+  text-align: center;
+} */
 
 h2 {
   font-size: 30px;
