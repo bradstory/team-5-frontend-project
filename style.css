@@ -29,7 +29,9 @@ button:hover {
   border-radius: 5px;
   border-style: double;
   padding: 10px;
-  /* background-color: #000; */
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .checkout-button {
@@ -132,12 +134,12 @@ button:hover {
 
 .creditOpt {
   display: flex;
-  width: 350px;
+  width: 250px;
   height: 300px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: rgb(178, 178, 190);
-  margin: 10px;
+  margin-left: 25px;
   padding: 15px;
 }
 
