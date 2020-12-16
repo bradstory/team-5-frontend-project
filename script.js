@@ -291,6 +291,7 @@ const receipt = [];
 
         
         function reciptTotal(a){
+          var amountPaid = document.getElementById('amount-paying').value
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;
@@ -299,6 +300,7 @@ const receipt = [];
           tax = subTotal * 0.05;
           document.getElementById("r-cart-tax").innerHTML = tax;
           document.getElementById("r-cart-total").innerHTML = tax + subTotal;
+          
         }
         reciptTotal(receipt);
 
@@ -345,12 +347,15 @@ function showPayCash() {
 }
 
 function getChange() {
-  const finalAmount = document.getElementById('cart-total').innerHTML
+  //Grabs the innerHTML of Final total then parses it as an integer
+  const finalAmount = parseInt(document.getElementById('cart-total').innerHTML)
   // console.log(finalAmount)
   const amountPaying = document.getElementById('amount-paying').value
   // console.log(amountPaying)
   var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
-  if(amountPaying > finalAmount) {
+  if(amountPaying < finalAmount) {
+    alert('Nice try! No short Changing us!')
+  } else if(amountPaying > finalAmount) {
     changeDue = amountPaying - finalAmount;
     console.log(changeDue)
     
@@ -359,9 +364,10 @@ function getChange() {
       currency: 'USD',
       minimumFractionDigits: 2,
    }).format(changeDue)
-  } else if(amountPaying < finalAmount){
-    alert('Nice try! No short Changing us!')
-  }
+   //Pushes values to receipt
+   document.getElementById('r-cart-amount-paid').innerHTML = amountPaying;
+   document.getElementById('r-cart-change').innerHTML = changeDue;
+  } 
 }
 
 function checkoutToggle() {
