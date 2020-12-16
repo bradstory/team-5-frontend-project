@@ -59,7 +59,7 @@ const lumpOfCoal = new product(
 const coffeeMug = new product(
   "Coffee Mug",
   "Traditional",
-  "You'll need something stronger than coffe to get through the holiday's this year.",
+  "You'll need something stronger than coffee to get through the holiday's this year.",
   20
 );
 const whiteElephant = new product(
@@ -193,23 +193,26 @@ const cart = [];
           </div>`;
         //defining the shopping cart
         const shoppingCart = document.getElementById('displayProducts');
-        const receiptItems = document.getElementById('r-displayProducts');
-        receiptItems.append(cartItem);
         //creating and appending the element
         shoppingCart.append(cartItem);
         cart.push(item);
-        // console.log(item);
-        // console.log(cart);
 
-        if (cart.length == 0) {
-          document.getElementById("displayProducts").innertext = "There is nothing in your cart";
-        }
+        // if (cart.length == 0) {
+        //   document.getElementById("displayProducts").innertext = "There is nothing in your cart";
+        // }
         
         if (cart.length > 0) {
           const showPayBtn = document.getElementById("paymentButton");
         
           showPayBtn.classList.add("show");
           showPayBtn.classList.remove("hide");
+          //adding show/hide pay with cash button
+          const showPayWithCash = document.getElementById('pay-options')
+          showPayWithCash.classList.add('showMe');
+          showPayWithCash.classList.remove('hide');
+          // adding Subtotal, Tax, Final amount to show/hide with cart
+          const totals = document.getElementById('totals');
+          totals.classList.add('showMe')
         }
 
         function subTotal(a){
@@ -251,19 +254,49 @@ function showPayments(e) {
   creditOpt.classList.remove("hide");
 }
 
-const taxRate = .06;
-const subtotal = document.getElementById('subtotalAmount').textContent;
+// reveal the shopping cart when button is clicked
+  function checkoutToggle(e) {
+  const showCart = document.getElementById("cart");
+  showCart.style.display = "block";
+}
+
+// const taxRate = .06;
+// const subtotal = document.getElementById('subtotalAmount').textContent;
 
 function showPayCash() {
-  const amountPaying = document.getElementById('cash-amount')
+  
   const cashBlock = document.getElementById('cash-transaction')
   cashBlock.classList.toggle('showMe')
-  //Need to add Functionality to populate Subtotal and Amount due
-  var taxTotal = (subtotal * taxRate);
-  taxTotalAmount = document.getElementById('tax');
-  taxTotalAmount.innerText = taxTotal;
-  if (amountPaying.textContent < finalTotal) {
-    alert('Please pay the full amount!')
+  //Populates Subtotal
+  var getSub = document.getElementById('pay-subtotal');
+  var putSub = document.getElementById("cart-subtotal").innerHTML
+  getSub.innerHTML = '$ ' + putSub;
+  //Populates the Tax
+  var getTax = document.getElementById('pay-tax')
+  var putTax = document.getElementById("cart-tax").innerHTML
+  getTax.innerHTML = '$ ' + putTax;
+  //Populates the grand Total
+  var getGrand = document.getElementById('pay-total')
+  var putGrand = document.getElementById("cart-total").innerHTML
+  getGrand.innerHTML = '$ ' + putGrand;
+}
+function getChange() {
+  const finalAmount = document.getElementById('cart-total').innerHTML
+  // console.log(finalAmount)
+  const amountPaying = document.getElementById('amount-paying').value
+  // console.log(amountPaying)
+  var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
+  if(amountPaying > finalAmount) {
+    changeDue = amountPaying - finalAmount;
+    console.log(changeDue)
+    
+    document.getElementById('changeDue').innerHTML = new Intl.NumberFormat("en-HOSSDDG",{
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+   }).format(changeDue)
+  } else if(amountPaying < finalAmount){
+    alert('Nice try! No short Changing us!')
   }
 }
 
