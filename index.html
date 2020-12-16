@@ -14,10 +14,11 @@
         <h1>Santa's Gift Shop 2020</h1>
         <button id="newIndow" onclick="checkoutToggle(event)" class="checkout-button"><i class="fa fa-shopping-cart"></i></button>
     </div>
+    <div id="mainContainer">
         <div id="products" class="parent">
             <div id="christmasTree" class="card">
                 <div class="name"></div>
-                <img src="img/rainbow-tree.jpg" alt="">
+                <img src="img/rainbow-tree.jpg" alt="" width="250" height="250">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -25,7 +26,7 @@
             </div>
             <div id="mask" class="card">
                 <div class="name"></div>
-                <img src="img/mask-two.png" alt="">
+                <img src="img/mask-two.png" alt="" width="300" height="250">
                 <div class="category"></div>
                 <div class="description"></div>
                 <div class="price"></div>
@@ -96,13 +97,15 @@
                 <button class="addToCart">Add to Cart</button>
             </div>
         </div>
-        <div class="shopping-cart hide" id="cart">            
+    </div>
+        <div class="shopping-cart hide" id="cart">
+            <h1>Your Cart</h1>
             <div class="closeBtn" onclick="checkoutToggle(event)">
                 <i class="far fa-times-circle"></i>
             </div>
             <h2>Your Shopping Cart</h2>            
             <div id="displayProducts"></div>
-            <button id="paymentButton" class="hide" onclick="showPayments()">Proceed to Payment</button>
+            <button id="paymentButton" class="hide" onclick="showPayments()">Pay with credit or debit</button>
             <div id="totals" class="hide">
                 <div>
                   <label>Subtotal<span>&nbsp &nbsp &nbsp &nbsp &nbsp &#36</span></label>
@@ -203,13 +206,14 @@
                     Amount paying in cash?
                     <input type="text" id="">
                     <button class="submit">Cha-ching!</button>
-                    <p>Change due:</p>
+                    <h1>Change due:</h1>
                 </div>
             </div>
             </div> -->
             <button id="receiptBtn" onclick="toggleReceipt()">Receipt</button>
         </div>
         <div class="hide rPopUp" id="receipt">
+            <h1>Thank you for Shopping at Santa's Gift Shop</h1>
             <div class="closeBtn" onclick="toggleReceipt()">
                 <i class="far fa-times-circle"></i>
             </div>
