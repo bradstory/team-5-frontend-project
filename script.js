@@ -183,28 +183,8 @@ const cart = [];
             </div>
             <div class="product-price">$ ${item.price}</div>
           </div>`;
-        //defining the shopping cart
-        const shoppingCart = document.getElementById('displayProducts');
-        //creating and appending the element
-        shoppingCart.append(cartItem);
-        cart.push(item);
-
         
-        if (cart.length > 0) {
-          const showPayBtn = document.getElementById("paymentButton");
-        
-          showPayBtn.classList.add("show");
-          showPayBtn.classList.remove("hide");
-          //adding show/hide pay with cash button
-          const showPayWithCash = document.getElementById('pay-options')
-          showPayWithCash.classList.add('showMe');
-          showPayWithCash.classList.remove('hide');
-          // adding Subtotal, Tax, Final amount to show/hide with cart
-          const totals = document.getElementById('totals');
-          totals.classList.add('showMe')
-        }
-
-        function subTotal(a){
+          function subTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
           subTotal += a[i].price;  
@@ -215,11 +195,28 @@ const cart = [];
           document.getElementById("cart-total").innerHTML = tax + subTotal;
         }
         subTotal(cart);
+        
+        cart.push(item);
 
-        const shoppingCart2 = document.getElementById('cart');
-        const payOptions = document.getElementById('pay-options');
+        
+        if (cart.length > 0) {
+          const payCard = document.getElementById("payCard");
+
+          payCard.classList.add("show");
+          payCard.classList.remove("hide");
+          //adding show/hide pay with cash button
+          const showPayWithCash = document.getElementById('pay-options')
+          showPayWithCash.classList.add('showMe');
+          showPayWithCash.classList.remove('hide');
+          // adding Subtotal, Tax, Final amount to show/hide with cart
+          const totals = document.getElementById('totals');
+          totals.classList.add('showMe')
+        }
+
+        const displayProducts = document.getElementById('displayProducts');
+        const innerProdChild = document.getElementById('prodPlace');
         //creating and appending the element
-        shoppingCart2.insertBefore(cartItem,payOptions);
+        displayProducts.append(cartItem,innerProdChild);
       }
     });
   });
@@ -294,20 +291,6 @@ const receipt = [];
         receipt.push(item);
 
         
-        if (cart.length > 0) {
-          const showPayBtn = document.getElementById("paymentButton");
-        
-          showPayBtn.classList.add("show");
-          showPayBtn.classList.remove("hide");
-          //adding show/hide pay with cash button
-          const showPayWithCash = document.getElementById('pay-options')
-          showPayWithCash.classList.add('showMe');
-          showPayWithCash.classList.remove('hide');
-          // adding Subtotal, Tax, Final amount to show/hide with cart
-          const totals = document.getElementById('totals');
-          totals.classList.add('showMe')
-        }
-
         function reciptTotal(a){
           var subTotal = 0;
           for(var i=0;i<a.length;i++)
@@ -332,8 +315,7 @@ const receipt = [];
 
 function showPayments(e) {
   const creditOpt = document.querySelector(".creditOpt");
-  creditOpt.classList.add("show");
-  creditOpt.classList.remove("hide");
+  creditOpt.classList.toggle("show");
 }
 
 // reveal the shopping cart when button is clicked

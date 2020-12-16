@@ -100,8 +100,7 @@
             <div class="closeBtn" onclick="checkoutToggle(event)">
                 <i class="far fa-times-circle"></i>
             </div>
-            <div id="displayProducts"></div>
-            <button id="paymentButton" class="hide" onclick="showPayments()">Proceed to Payment</button>
+            <div id="displayProducts"><span id="prodPlace"></span></div>
             <div id="totals" class="hide">
                 <div>
                   <label>Subtotal</label>
@@ -116,7 +115,7 @@
                   <div class="totals-value" id="cart-total"></div>
                 </div>
               </div>
-            <div id="pay-options" class="hide">
+              <div id="pay-options" class="hide">
                 <div class="pay-with-cash">
                     <button class="cash-button" onclick="showPayCash()">Pay with Cash</button>
                     <div id="cash-transaction" class="cash-transaction">
@@ -129,9 +128,9 @@
                         <p>Change due:<div id="changeDue"></div></p>
                     </div>
                 </div>
-                </div>
-            <button id="paymentButton" class="hide" onclick="showPayments(event)">Proceed to Payment</button>
-            <div class="creditOpt hide">
+                </div>  
+                <button id="payCard" class="hide" onclick="showPayments(event)">Pay With Card</button>
+                <div class="creditOpt hide">
                 <form id="simplify-payment-form" action="" method="POST">
                     <div>
                         <label>Credit Card Number: </label>
@@ -176,7 +175,7 @@
                     </div>
                 </form>
             </div>
-            <button id="receiptBtn" onclick="toggleReceipt()">Receipt</button>
+            <button id="receiptBtn" onclick="toggleReceipt()">View Receipt</button>
         </div>
         <div class="hide rPopUp" id="receipt">
             <div class="closeBtn" onclick="toggleReceipt()">
