@@ -98,6 +98,20 @@
         </div>
         <div class="shopping-cart" id="cart" class="hide">
             <div id="displayProducts"></div>
+            <div id="totals" class="hide">
+                <div>
+                  <label>Subtotal</label>
+                  <div class="totals-value" id="cart-subtotal"></div>
+                </div>
+                <div>
+                  <label>Tax (5%)</label>
+                  <div class="totals-value" id="cart-tax"></div>
+                </div>
+                <div>
+                  <label>Grand Total</label>
+                  <div class="totals-value" id="cart-total"></div>
+                </div>
+              </div>
             <div id="pay-options" class="hide">
                 <div class="pay-with-cash">
                     <button class="cash-button" onclick="showPayCash()">Pay with Cash</button>
@@ -158,20 +172,7 @@
                     </div>
                 </form>
             </div>
-            <div id="totals">
-                <div>
-                  <label>Subtotal</label>
-                  <div class="totals-value" id="cart-subtotal"></div>
-                </div>
-                <div>
-                  <label>Tax (5%)</label>
-                  <div class="totals-value" id="cart-tax"></div>
-                </div>
-                <div>
-                  <label>Grand Total</label>
-                  <div class="totals-value" id="cart-total"></div>
-                </div>
-              </div>
+            
             <!-- end of product line -->
             <!-- <div class="cart-total-price">499.99</div> -->
         </div>

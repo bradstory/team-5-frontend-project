@@ -59,7 +59,7 @@ const lumpOfCoal = new product(
 const coffeeMug = new product(
   "Coffee Mug",
   "Traditional",
-  "You'll need something stronger than coffe to get through the holiday's this year.",
+  "You'll need something stronger than coffee to get through the holiday's this year.",
   20
 );
 const whiteElephant = new product(
@@ -208,6 +208,9 @@ const cart = [];
           const showPayWithCash = document.getElementById('pay-options')
           showPayWithCash.classList.add('showMe');
           showPayWithCash.classList.remove('hide');
+          // adding Subtotal, Tax, Final amount to show/hide with cart
+          const totals = document.getElementById('totals');
+          totals.classList.add('showMe')
         }
 
         function subTotal(a){
@@ -270,7 +273,6 @@ function getChange() {
   const amountPaying = document.getElementById('amount-paying').value
   // console.log(amountPaying)
   var changeDue = parseInt(document.getElementById('getMeSomeChange').innerHTML)
-  //WIP NEED TO ADD CHANGE FUNCTIONALITY
   if(amountPaying > finalAmount) {
     changeDue = amountPaying - finalAmount;
     console.log(changeDue)
@@ -283,4 +285,4 @@ function getChange() {
   } else if(amountPaying < finalAmount){
     alert('Nice try! No short Changing us!')
   }
-}////Fix it returning NaN
+}
