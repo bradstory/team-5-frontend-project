@@ -24,6 +24,16 @@ button:hover {
   cursor: pointer;
 }
 
+#cart {
+  border:green solid 10px;
+  border-radius: 5px;
+  border-style: double;
+  padding: 10px;
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .checkout-button {
   font-size: 30px;
   border-radius: 10px;
@@ -84,6 +94,11 @@ button:hover {
   width: 100%;
 }
 
+#receipt {
+  border: red solid 10px;
+  border-radius: 2px;
+}
+
 .addToCart {
   border-radius: 10px;
   background-color: #098d3c;
@@ -106,7 +121,6 @@ button:hover {
 
 #displayProducts {
   padding: 100px 0px;
-  border: black solid 5px;
   width: 100%;
 }
 
@@ -120,12 +134,12 @@ button:hover {
 
 .creditOpt {
   display: flex;
-  width: 350px;
+  width: 250px;
   height: 300px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: rgb(178, 178, 190);
-  margin: 10px;
+  margin-left: 25px;
   padding: 15px;
 }
 
