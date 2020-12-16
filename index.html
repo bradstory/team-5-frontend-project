@@ -128,6 +128,7 @@
                         <input type="text" id="amount-paying" placeholder="$$$">
                         <button id="getMeSomeChange"onclick="getChange()">Cha-ching!</button>
                         <p>Change due:<div id="changeDue"></div></p>
+                        <button onclick="toggleReceipt(event)">View Receipt</button>
                     </div>
                 </div>
                 </div>  
@@ -171,16 +172,15 @@
                             <option value="22">2030</option>
                         </select>
                     </div>
-                    <button id=process-payment-btn onclick="processPayment()">Process Payment</button>
+                    <button onclick="toggleReceipt(event)">Process Payment</button>
                     <div class="cards">
                         <img src="pics/VisaMastercardAmexDiscoverCards.png" height="150px" width="350px">
                     </div>
                 </form>
             </div>
-            <button id="receiptBtn" onclick="toggleReceipt()">View Receipt</button>
         </div>
         <div class="hide rPopUp" id="receipt">
-            <div class="closeBtn" onclick="toggleReceipt()">
+            <div class="closeBtn" onclick="toggleReceipt(event)">
                 <i class="far fa-times-circle"></i>
             </div>
             <h2>Your Receipt</h2>            
