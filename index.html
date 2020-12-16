@@ -102,6 +102,35 @@
             </div>
             <div id="displayProducts"></div>
             <button id="paymentButton" class="hide" onclick="showPayments()">Proceed to Payment</button>
+            <div id="totals" class="hide">
+                <div>
+                  <label>Subtotal</label>
+                  <div class="totals-value" id="cart-subtotal"></div>
+                </div>
+                <div>
+                  <label>Tax (5%)</label>
+                  <div class="totals-value" id="cart-tax"></div>
+                </div>
+                <div>
+                  <label>Grand Total</label>
+                  <div class="totals-value" id="cart-total"></div>
+                </div>
+              </div>
+            <div id="pay-options" class="hide">
+                <div class="pay-with-cash">
+                    <button class="cash-button" onclick="showPayCash()">Pay with Cash</button>
+                    <div id="cash-transaction" class="cash-transaction">
+                        <div class="subtotal">Subtotal:<div id="pay-subtotal"></div></div>
+                        <div class="tax" id="tax">Tax:<div id="pay-tax"></div></div>
+                        <div class="final-total">Amount due:<div id="pay-total"></div></div>
+                        Amount paying in cash?
+                        <input type="text" id="amount-paying" placeholder="$$$">
+                        <button id="getMeSomeChange"onclick="getChange()">Cha-ching!</button>
+                        <p>Change due:<div id="changeDue"></div></p>
+                    </div>
+                </div>
+                </div>
+            <button id="paymentButton" class="hide" onclick="showPayments(event)">Proceed to Payment</button>
             <div class="creditOpt hide">
                 <form id="simplify-payment-form" action="" method="POST">
                     <div>
