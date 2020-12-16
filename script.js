@@ -237,7 +237,7 @@ const cart = [];
           document.getElementById("r-cart-tax").innerHTML = tax;
           document.getElementById("r-cart-total").innerHTML = tax + subTotal;
         }
-        reciptTotal(receipt);
+        reciptTotal(cart);
 
         const shoppingCart2 = document.getElementById('cart');
         const payOptions = document.getElementById('pay-options');
